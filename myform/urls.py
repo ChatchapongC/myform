@@ -6,13 +6,14 @@ from django.conf import settings
 from.import views
 
 
+
 urlpatterns = [
     url(r'admin/',admin.site.urls),
     url(r'accounts/',include('accounts.urls')),
-    url(r'about/$',views.about),
+    url(r'^$',views.index_view  ),
 
-    url(r'^$',views.homepage),
 ]
+
 
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
