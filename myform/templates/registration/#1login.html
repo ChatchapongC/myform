@@ -1,30 +1,30 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-    <link rel="stylesheet" href="login.css"> 
-<body background="bg.jpg">
-    <script src="login.js"></script>
-    <div class="topic">
-      MY FORM
+<link rel="stylesheet" href="login.css"> 
+<script src="login.js"></script>
+<div class="login-box">
+  <div class="lb-header">
+    <a href="#" class="active" id="login-box-link">Login</a>
+    <a href="file:///Users/mac/Desktop/myform/myform/templates/registration/%232signup.html" id="signup-box-link">Sign Up</a>
+  </div>
+  <div class="social-login">
+    <a href="#">
+      <i class="facebook"></i>
+      Facebook
+    </a>
+    <a href="#">
+      <i class="google-plus"></i>
+      Google +
+    </a>
+  </div>
+  <form class="username-login">
+    <div class="u-form-group">
+      <input type="username" placeholder="username"/>
     </div>
-<p size="8" style="color:white">Create your own evaluation !</p>
-
-<button class="open-button" onclick="openForm()">Clik here</button>
-
-<div style="color: gray" class="form-popup" id="myForm">
-  <form action="/action_page.php" class="form-container">
-    <h1>Login</h1>
-
-    <label for="User"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="User" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-    <p size="3" style="color:gray">New to this web? <a href="file:///Users/mac/Desktop/final%20project/Login/signup.html">sign up >>></a></p>
-    <button type="submit" class="btn">Login</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    <div class="u-form-group">
+      <input type="password" placeholder="Password"/>
+    </div>
+    <div class="u-form-group">
+      <button>Log in</button>
+    </div>
   </form>
-</div>
-
+</div> 
+<button type="entersite" class="entersite">Enter Site</button>
