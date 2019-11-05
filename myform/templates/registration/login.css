@@ -116,14 +116,19 @@ body {
   border-radius: 2px;
   text-transform: uppercase;
 }
-.entersite{
-  background-color: rgba(18, 18, 19, 0.966);
-  color: white;
-  padding: 10px 4px;
-  margin-right: 8%;
-  margin-top: 16%;
+
+
+.btn {
   border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
   cursor: pointer;
-  width:10%;
-  height: 6%;
+  display: inline-block;
+  margin-left:75%;
 }
+
+.btn:hover {background: #eee;}
+
+.Entersite {color: rgb(0, 0, 0);}
+
