@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html>
+ <body>
+ <h2>Login</h2>
+ <form method="post">
+   {% csrf_token %}
+   <p>
+   {{ form.as_p }}
 
-</body>
-</html>
+   <button type="submit">Login</button>
+   <input type="hidden" name="next" value="{{next}}"/>
+ </form>
+ {# If you have written a password_reset template, then #}
+ <p>
+ <a href="{% url 'password_reset' %}">Forgot password?</a>
+ </p>
+ </body>
+ </html>
