@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</style>
+</head>
+<body bgcolor="pink">
+    <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}"> 
+<body background="bg.jpg">
+    <script src="login.js"></script>
+    <div class="topic">
+      EVALUATOR
+    </div>
+<p size="8" style="color:white">Create your own evaluation !</p>
+
+<button class="open-button" onclick="openForm()">Clik here</button>
+
+<div style="color: gray" class="form-popup" id="myForm">
+  <form action="/action_page.php" class="form-container">
+    <h1>Login</h1>
+
+    <label for="User"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="User" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+    <p size="3" style="color:gray">New to this web? <a href="file:///Users/mac/Desktop/final%20project/Login/signup.html">sign up >>></a></p>
+    <button type="submit" class="btn">Login</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
