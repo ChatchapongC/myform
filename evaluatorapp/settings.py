@@ -31,7 +31,7 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
-ROOT_URLCONF = 'myform.urls'
+ROOT_URLCONF = 'evaluatorapp.urls'
 
 # Application definition
 
