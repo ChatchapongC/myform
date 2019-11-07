@@ -22,4 +22,4 @@ before_script:
 # script to run tests. Script can have many commands, one per line.
 script:
   - coverage run manage.py test
-  
+
