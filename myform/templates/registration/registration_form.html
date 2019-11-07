@@ -1,0 +1,28 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'myform/login.css' %}">
+<div class="social-login">
+    <a href="#">
+        <b class="facebook"></b>
+        Facebook
+    </a>
+    <a href="#">
+        <b class="google-plus"></b>
+        Google +
+    </a>
+</div>
+<form class="username-signup" method="post" action="{% url 'signup'%}">
+    {% csrf_token %}
+    <div class="u-form-group">
+        <label>{{form.email}}</label>
+    </div>
+    <div class="u-form-group">
+        <label>{{form.username}}</label>
+    </div>
+    <div class="u-form-group">
+        <label>{{form.password}}</label>
+    </div>
+    <div class="u-form-group">
+        <button type="submit">Sign Up</button>
+    </div>
+</form>

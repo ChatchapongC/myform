@@ -1,17 +1,38 @@
-<html>
- <body>
- <h2>Login</h2>
- <form method="post">
-   {% csrf_token %}
-   <p>
-   {{ form.as_p }}
+{% load staticfiles %}
 
-   <button type="submit">Login</button>
-   <input type="hidden" name="next" value="{{next}}"/>
- </form>
- {# If you have written a password_reset template, then #}
- <p>
- <a href="{% url 'password_reset' %}">Forgot password?</a>
- </p>
- </body>
- </html>
+<link rel="stylesheet" href="{% static 'myform/login.css' %}">
+<div class="login-box">
+  <div class="lb-header">
+    <a class="active" id="login-box-link">Login</a>
+    <a href="{% url 'signup' %}" id="signup-box-link">Sign Up</a>
+  </div>
+  <div class="social-login">
+    <a href="{% url 'social:begin' 'facebook' %}">
+      <i class="facebook"></i>
+      Facebook
+    </a>
+    <a href="{% url 'social:begin' 'google-oauth2' %}">
+      <i class="google-plus"></i>
+      Google +
+    </a>
+  </div>
+  <form method="post" class="username-login" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div class="u-form-group">
+      <input name='username' type="text" placeholder="username"/>
+    </div>
+    <div class="u-form-group">
+      <input name='password' type="password" placeholder="password"/>
+    </div>
+    <div class="u-form-group">
+      <button type="submit">Log in</button>
+      <input type="hidden" name="next" value="{{next}}"/>
+    </div>
+    {% for message in messages %}
+          <div class="alert alert-danger">
+            <a class="close" href="#" data-dismiss="alert"></a>{{ message }}
+          </div>
+    {% endfor %}
+    </form>
+    <button class="btn Entersite"><a href="{% url 'myform:create' %}">Entersite</a></button>
+</div>
