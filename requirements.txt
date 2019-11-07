@@ -1,0 +1,5 @@
+django-heroku
+python-decouple
+social-auth-app-django
+Django==2.1.2
+coverage
