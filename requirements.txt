@@ -3,3 +3,5 @@ python-decouple
 social-auth-app-django
 Django==2.1
 coverage
+gunicorn
+
