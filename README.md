@@ -7,8 +7,8 @@
 - [Description](#description)
 - [Team members](#team-members)
 - [Documents](#documents)
-- [Installation Instructions](#installation-instructions)
-- [How to Run](#how-to-run)
+- [Installation](#installing)
+- [How to Run](#run-application)
 
 
 ## Description
