@@ -1,8 +1,9 @@
-<link rel="stylesheet" href="login.css"> 
+{% load static %}
+<link rel="stylesheet" href="{% static 'myform/login.css' %}"> 
 <div class="login-box">
   <div class="lb-header">
     <a href="#" class="active" id="login-box-link">Login</a>
-    <a href="file:///Users/mac/Desktop/myform/myform/templates/registration/%232signup.html" id="signup-box-link">Sign Up</a>
+    <a href="{% url "myform:signup" %}" id="signup-box-link">Sign Up</a>
   </div>
   <div class="social-login">
     <a href="#">
@@ -24,7 +25,10 @@
     <div class="u-form-group">
       <button>Log in</button>
     </div>
-    <button class="btn Entersite">Entersite</button>
+    <button class="btn Entersite">
+      <a href="{% url "myform:event" %}">
+        Entersite</a>
+    </button>
   </form>
 </div> 
 

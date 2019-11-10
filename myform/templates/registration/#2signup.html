@@ -1,18 +1,12 @@
-<link rel="stylesheet" href="login.css">
+{% load static %}
+<link rel="stylesheet" href="{% static 'myform/login.css' %}">
 <div class="login-box">
-  <div class="social-login">
-    <a href="#">
-      <b class="facebook"></b>
-      Facebook
-    </a>
-    <a href="#">
-      <b class="google-plus"></b>
-      Google +
-    </a>
-  </div> 
   <form class="username-signup">
     <div class="u-form-group">
-      <input type="username" placeholder="username"/>
+      <input type="email" placeholder="Email"/>
+    </div>
+    <div class="u-form-group">
+      <input type="username" placeholder="Username"/>
     </div>
     <div class="u-form-group">
       <input type="password" placeholder="Password"/>
@@ -23,6 +17,12 @@
     <div class="u-form-group">
       <button>Sign Up</button>
     </div>
+  </form> 
+  <div style="position: absolute; left: 35px; top: 320px;"> 
+    <a href="{% url "myform:home" %}">
+         <img src="{% static 'myform/images/point.png' %}" width="50" height="48">
+    </a>
+  </div>
 </div>
-</form>
+
 

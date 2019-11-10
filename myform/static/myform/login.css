@@ -1,5 +1,5 @@
 body {
-  background-image: url("pic2.jpeg");
+  background-image: url("images/pic2.jpeg");
 }
 .login-box{
   position:relative;
@@ -87,6 +87,7 @@ body {
   width:100%;
   margin-bottom: 10px;
 }
+.u-form-group input[type="email"],
 .u-form-group input[type="username"],
 .u-form-group input[type="password"]{
   width: calc(50% - 22px);
@@ -130,5 +131,5 @@ body {
 
 .btn:hover {background: #eee;}
 
-.Entersite {color: rgb(0, 0, 0);}
+.Entersite {color: gb(0, 0, 0);}
 
