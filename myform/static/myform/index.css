@@ -1,6 +1,6 @@
 body {
   /* background-image: url("pic2.jpeg"); */
-  background-image:url("images/bg1.jpg");
+  background-image:url("images/bg3.jpg");
 }
 .even-box{
   position:relative;
@@ -13,20 +13,21 @@ body {
   -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
   -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
   box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
-  opacity: 0.7;
+  opacity: 0.95;
 } 
 .even-box1{
   position:relative;
   margin: 10px auto;
   width: 800px;
   height: 200px;
-  background-color: rgb(204, 240, 243);
+  background-color: rgb(202, 218, 202);
   padding: 10px;
   border-radius: 3px;
   -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
   -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
   box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
-  opacity: 0.85;
+  opacity: 0.95;
+  
 } 
 .lb-header{
   position:relative;
@@ -41,7 +42,7 @@ body {
   margin: 0 25px;
   padding: 0 20px;
   text-decoration: none;
-  color: rgb(22, 22, 22);
+  color: rgb(80, 112, 91);
   font-weight: bold;
   font-size: 30px;
   -webkit-transition: all 0.1s linear;
