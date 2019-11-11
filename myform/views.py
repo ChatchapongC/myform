@@ -5,18 +5,19 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
 from django.views.generic import TemplateView
+from django.contrib.auth.models import User
 from django.views import generic, View
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .form import RegisterForm
+from .forms import UserRegistrationForm
 
 
 class HomeView(TemplateView):
     template_name = 'registration/login.html'
 
 
-# class RegisterView(TemplateView):
-#     template_name = 'registration/registration_form.html'
+class CreateProjectView(TemplateView):
+    template_name = 'myform/projectlist.html'
 
 
 def create(request):
@@ -41,18 +42,26 @@ def user_login(request):
         return render(request, 'registration/login.html')
 
 
+def logout_user(request):
+    """
+    Function to logout user and redirect to login page.
+    """
+    logout(request)
+    return HttpResponseRedirect('/login')
+
+
 def user_register(request):
     registered = False
     if request.method == 'POST':
-        form = RegisterForm(data=request.POST)
-        if form.is_valid():
-            form = form.save()
-            form.set_password(form.password)
-            form.save()
+        user = UserRegistrationForm(data=request.POST)
+        if user.is_valid():
+            user = user.save()
+            user.set_password(user.password)
+            user.save()
             registered = True
             return HttpResponseRedirect(reverse('myform:home'))
     else:
-        form = RegisterForm()
-    context = {'form': form,
+        user = UserRegistrationForm()
+    context = {'user': user,
                'registered': registered}
     return render(request, 'registration/registration_form.html', context)

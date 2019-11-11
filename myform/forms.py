@@ -1,9 +1,10 @@
 from django import forms
 from django.contrib.auth.models import User
+
 from django.forms import EmailInput, TextInput, PasswordInput, Field
 
 
-class RegisterForm(forms.ModelForm):
+class UserRegistrationForm(forms.ModelForm):
     """
     A form that creates a user, with no privileges, from the given username and
     password.
@@ -17,3 +18,16 @@ class RegisterForm(forms.ModelForm):
             'username': TextInput(attrs={'placeholder': 'username'}),
             'password': PasswordInput(attrs={'placeholder': 'password'}),
         }
+
+# class EvaluateForm(forms.ModelForm):
+#     class Meta:
+#         model = Question
+#         field = ['']
+
+
+
+
+
+
+
+

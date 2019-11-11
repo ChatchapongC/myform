@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 
 <link rel="stylesheet" href="{% static 'myform/login.css' %}">
 <div class="login-box">
@@ -6,33 +6,37 @@
     <a class="active" id="login-box-link">Login</a>
     <a href="{% url 'signup' %}" id="signup-box-link">Sign Up</a>
   </div>
-  <div class="social-login">
-    <a href="{% url 'social:begin' 'facebook' %}">
-      <i class="facebook"></i>
-      Facebook
-    </a>
-    <a href="{% url 'social:begin' 'google-oauth2' %}">
-      <i class="google-plus"></i>
-      Google +
-    </a>
-  </div>
-  <form method="post" class="username-login" action="{% url 'login' %}">
-    {% csrf_token %}
-    <div class="u-form-group">
-      <input name='username' type="text" placeholder="username"/>
+  {% if user.is_authenticated %}
+     <button class="btn Entersite"><a href="{% url 'myform:create' %}">Entersite</a></button>
+  {% else %}
+    <div class="social-login">
+      <a href="{% url 'social:begin' 'facebook' %}">
+        <i class="facebook"></i>
+        Facebook
+      </a>
+      <a href="{% url 'social:begin' 'google-oauth2' %}">
+        <i class="google-plus"></i>
+        Google +
+      </a>
     </div>
-    <div class="u-form-group">
-      <input name='password' type="password" placeholder="password"/>
-    </div>
-    <div class="u-form-group">
-      <button type="submit">Log in</button>
-      <input type="hidden" name="next" value="{{next}}"/>
-    </div>
-    {% for message in messages %}
-          <div class="alert alert-danger">
-            <a class="close" href="#" data-dismiss="alert"></a>{{ message }}
-          </div>
-    {% endfor %}
-    </form>
-    <button class="btn Entersite"><a href="{% url 'myform:create' %}">Entersite</a></button>
+    <form method="post" class="username-login" action="{% url 'login' %}">
+      {% csrf_token %}
+      <div class="u-form-group">
+        <input name='username' type="text" placeholder="username"/>
+      </div>
+      <div class="u-form-group">
+        <input name='password' type="password" placeholder="password"/>
+      </div>
+      <div class="u-form-group">
+        <button type="submit">Log in</button>
+        <input type="hidden" name="next" value="{{next}}"/>
+      </div>
+      {% for message in messages %}
+            <div class="alert alert-danger">
+              <a class="close" href="#" data-dismiss="alert"></a>{{ message }}
+            </div>
+      {% endfor %}
+      </form>
+      <button class="btn Entersite"><a href="{% url 'myform:create' %}">Entersite</a></button>
+  {% endif %}
 </div>

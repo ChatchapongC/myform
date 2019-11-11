@@ -1,0 +1,52 @@
+body {
+  background-image: url("images/bg1.jpg");
+}
+.projectlist-box{
+  position:relative;
+  margin: 10px auto;
+  width: 600px;
+  height: 500px;
+  background-color: rgb(223, 223, 223);
+  padding: 10px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
+  -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
+  box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
+  opacity: 0.7;
+}
+.lb-header{
+  position:relative;
+  color:black;
+  margin: 5px 5px 10px 5px;
+  padding-bottom:10px;
+  border-bottom: 1px solid #eee;
+  text-align:center;
+  height:28px;
+}
+.lb-header i{
+  margin: 0 25px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: rgb(21, 4, 248);
+  font-weight: bold;
+  font-size: 24px;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.btn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 20px;
+  cursor: pointer;
+  display: inline-block;
+  margin-top:64%;
+  margin-left:32%;
+
+}
+
+.btn:hover {background: #eee;}
+
+.add{color: rgb(0, 0, 0);}

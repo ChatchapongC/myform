@@ -22,7 +22,7 @@ urlpatterns = [
     path('', include('myform.urls')),
     path('admin/', admin.site.urls),
     path('login/', views.user_login, name='login'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('logout/', views.logout_user, name='logout'),
     path('signup/', views.user_register, name='signup'),
     path('oauth/', include('social_django.urls', namespace='social')),
 ]
