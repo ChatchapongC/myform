@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{% static 'myform/login.css' %}">
 <div class="login-box">
   <div class="lb-header">
-    <a class="active" id="login-box-link">Login</a>
+    <a class="active" id="login-box-link" href="{% url 'login' %}">Login</a>
     <a href="{% url 'signup' %}" id="signup-box-link">Sign Up</a>
   </div>
   {% if user.is_authenticated %}
@@ -37,6 +37,10 @@
             </div>
       {% endfor %}
       </form>
-      <button class="btn Entersite"><a href="{% url 'myform:create' %}">Entersite</a></button>
+        <div style="position: absolute; left: 730px; top: 456px;">
+        <a href="{% url 'myform:create' %}">
+             <img src="{% static 'myform/images/entersite.png' %}" width="110" height="64">
+        </a>
+      </div>
   {% endif %}
 </div>

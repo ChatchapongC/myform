@@ -132,3 +132,4 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+/os.path.join(BASE_DIR, 'db.sqlite3')
