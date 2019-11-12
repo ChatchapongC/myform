@@ -9,3 +9,6 @@ class EventListView(TemplateView):
 
 class SignupView(TemplateView):
     template_name = 'registration/#2signup.html'
+
+class CreateEventView(TemplateView):
+    template_name = 'myform/evenlist.html'
