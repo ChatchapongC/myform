@@ -28,7 +28,7 @@ Chatchapong Chumpada | [**ChatchapongC**](https://github.com/ChatchapongC)
 
 
 ## Project Documents
-- **Iteration plan**: [Documentation](https://docs.google.com/document/d/1rDJOdz9LLVHhmFF3iuqE_Jmk5SodGcB1CdXmqaE_lXU/edit?ts=5da45a9b#bookmark=id.ubis0p7h5of7)
+- **Iteration plan**: [Github Wiki](https://github.com/ChatchapongC/myform/wiki/Iteration-plan)
 - **Task board**: [Trello](https://trello.com/b/3HD9FiRC)
 - **Issue tracking**: [GitHub issue](https://github.com/ChatchapongC/myform/issues)
 - **Code Review Script**: [Google Docs](https://docs.google.com/document/d/1LpJLmyLWiSoBRXpQJWmqK6wLSLc8UsPzZkV-UXFzBn0/edit?usp=sharing)
