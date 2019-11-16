@@ -27,11 +27,12 @@ Ingkharat Jangchud | [**ingkharatj**](https://github.com/ingkharatj)
 Chatchapong Chumpada | [**ChatchapongC**](https://github.com/ChatchapongC) 
 
 
-## Documents
+## Project Documents
 - **Iteration plan**: [Documentation](https://docs.google.com/document/d/1rDJOdz9LLVHhmFF3iuqE_Jmk5SodGcB1CdXmqaE_lXU/edit?ts=5da45a9b#bookmark=id.ubis0p7h5of7)
 - **Task board**: [Trello](https://trello.com/b/3HD9FiRC)
 - **Issue tracking**: [GitHub issue](https://github.com/ChatchapongC/myform/issues)
-
+- **Code Review Script**: [Google Docs](https://docs.google.com/document/d/1LpJLmyLWiSoBRXpQJWmqK6wLSLc8UsPzZkV-UXFzBn0/edit?usp=sharing)
+- **Code Review Checklist** [Google Docs](https://docs.google.com/document/d/1nFVZQUVCGOiv-FQsKDDub9sAaetvlcQYC9BdJfKn6cQ/edit?usp=sharing)
 
 ## Prerequisites
 - **Python** (v.3.6 or newer) : [Download](https://www.python.org/downloads/)
