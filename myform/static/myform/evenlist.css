@@ -27,14 +27,17 @@ body {
   border-radius: 3px;
 
 }
+
+
 .u-form-group{
   width:100%;
   margin-top: 20px;
   margin-left:211px;
 }
-.u-form-group input[type="eventname"]
+.u-form-group input[type="eventname"],
+
 {
-  width: calc(50% - px);
+  width: 320px;
   height:50px;
   outline: none;
   border: 1px solid #ddd;
@@ -45,7 +48,8 @@ body {
   font-variant-position: inherit;
 } 
 
-.u-form-group1 input[type="question"]
+.u-form-group1 input[type="question"],
+.u-form-group1 input[type="shortanswer"]
 {
   height:39px;
   width: 500px;
@@ -66,8 +70,8 @@ body {
   padding: 14px 28px;
   cursor: pointer;
   display: inline-block;
-}
 
+}
 .btn1 {
   border: none;
   background-color: inherit;
@@ -114,3 +118,4 @@ body {
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
