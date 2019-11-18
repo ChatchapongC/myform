@@ -1,0 +1,8 @@
+django-heroku
+python-decouple
+social-auth-app-django
+coverage
+HEAD
+gunicorn
+django>=2.1.11
+

@@ -1,11 +1,11 @@
+from django.contrib import admin
 from django.urls import path
-from myform.views import HomeView, EventListView,SignupView,CreateEventView
+from myform.views import HomeView, create, CreateProjectView
 
-app_name ='myform'
+app_name = 'myform'
 
 urlpatterns = [
-    path('',HomeView.as_view(),name='home'),
-    path('event/',EventListView.as_view(),name='event'),
-    path('signup/',SignupView.as_view(),name='signup'),
-    path('createvent/',CreateEventView.as_view(),name='createvent'),
+    path('', HomeView.as_view(), name='home'),
+    path('create/', create, name='create'),
+    path('project/', CreateProjectView.as_view(), name='project')
 ]

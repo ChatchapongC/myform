@@ -1,16 +1,22 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'myform/index.css' %}"> 
-<div class="even-box">
-    <div class="lb-header">
-        <i>Even List</i>
-    </div>
-</div> 
-<div class="even-box1">
-    <div class="lb-header">
-        <s>My Event</s>
-    </div>
-    <a href="{% url "myform:createvent" %}">
-        <button class="btn Event">+ Create Event</button>
-    </a>   
-</div> 
+{% block content %}
+    {% if user.is_authenticated %}
+        <p>Hello {{ user.first_name|default:user.username}}!</p>
+        <link rel="stylesheet" href="{% static 'myform/index.css' %}">
+        <div class="even-box">
+            <div class="lb-header">
+                <i>Even List</i>
+            </div>
+        </div>
+        <div class="even-box1">
+            <div class="lb-header">
+                <s>My Event</s>
+            </div>
+            <button class="btn Event">+ Create Event</button>
+        </div>
+        <a href="{% url 'logout'%}?next={{request.path}}">logout</a>
+    {% else %}
+        Please <a href="{% url 'login'%}?next={{request.path}}">login</a> to view this page.
+    {% endif %}
+{% endblock %}
 
