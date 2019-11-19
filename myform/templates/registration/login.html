@@ -7,19 +7,19 @@
     <a href="{% url 'signup' %}" id="signup-box-link">Sign Up</a>
   </div>
   {% if user.is_authenticated %}
-     <button class="btn Entersite"><a href="{% url 'myform:create' %}">Entersite</a></button>
+     <button class="btn Entersite"><a href="{% url 'myform:event' %}">Entersite</a></button>
   {% else %}
-    <div class="social-login">
+    <form class="social-login">
       <a href="{% url 'social:begin' 'facebook' %}">
         <i class="facebook"></i>
-        Facebook
+        Login with Facebook
       </a>
       <a href="{% url 'social:begin' 'google-oauth2' %}">
         <i class="google-plus"></i>
-        Google +
+        Login with Google +
       </a>
-    </div>
-    <form method="post" class="username-login" action="{% url 'login' %}">
+    </form>
+    <form method="post" class="username-login" action="{% url 'login'%}?next={{request.path}}">
       {% csrf_token %}
       <div class="u-form-group">
         <input name='username' type="text" placeholder="username"/>
@@ -36,9 +36,9 @@
               <a class="close" href="#" data-dismiss="alert"></a>{{ message }}
             </div>
       {% endfor %}
-      </form>
+    </form>
         <div style="position: absolute; left: 730px; top: 456px;">
-        <a href="{% url 'myform:create' %}">
+        <a href="{% url 'myform:event' %}">
              <img src="{% static 'myform/images/entersite.png' %}" width="110" height="64">
         </a>
       </div>

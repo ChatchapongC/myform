@@ -9,7 +9,8 @@ from django.contrib.auth.models import User
 from django.views import generic, View
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegistrationForm
+from .forms import UserRegistrationForm, EvaluateForm
+from .models import Event
 
 
 class HomeView(TemplateView):
@@ -20,8 +21,25 @@ class CreateProjectView(TemplateView):
     template_name = 'myform/projectlist.html'
 
 
-def create(request):
-    return render(request, 'myform/index.html')
+def create_form(request):
+    if request.method == 'POST':
+        project_form = EvaluateForm(data=request.POST)
+        if project_form.is_valid():
+            project_form = project_form.save()
+        return HttpResponseRedirect(reverse('myform:event'))
+    else:
+        project_form = EvaluateForm()
+    context = {'project_form': project_form}
+    return render(request, 'myform/createform.html', context)
+
+
+class IndexView(generic.ListView):
+    model = Event
+    template_name = 'myform/index.html'
+    context_object_name = 'event_list'
+
+    def get_queryset(self):
+        return Event.objects.all()
 
 
 def user_login(request):
@@ -34,7 +52,7 @@ def user_login(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse('myform:create'))
+            return HttpResponseRedirect(reverse('myform:event'))
         else:
             messages.error(request, 'Wrong username or password try again!')
             return render(request, 'registration/login.html')

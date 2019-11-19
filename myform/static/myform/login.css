@@ -1,11 +1,11 @@
 body {
-  background-image: url("images/bg3.jpg");
+  background-image: url("images/pic2.jpeg");
 }
 .login-box{
   position:relative;
   margin: 10px auto;
   width: 500px;
-  height: 390px;
+  height: 380px;
   background-color: #fff;
   padding: 10px;
   border-radius: 3px;
@@ -87,8 +87,8 @@ body {
   width:100%;
   margin-bottom: 10px;
 }
-.u-form-group input[type="text"],
 .u-form-group input[type="email"],
+.u-form-group input[type="text"],
 .u-form-group input[type="password"]{
   width: calc(50% - 22px);
   height:45px;
@@ -110,7 +110,6 @@ body {
   background-color: #1CB94E;
   border: none;
   outline: none;
-  cursor: pointer;
   color: #fff;
   font-size: 14px;
   font-weight: normal;
@@ -132,4 +131,4 @@ body {
 
 .btn:hover {background: #eee;}
 
-.Entersite {color: rgb(0, 0, 0);}
+.Entersite {color: gb(0, 0, 0);}
