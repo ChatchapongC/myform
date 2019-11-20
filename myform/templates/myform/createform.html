@@ -1,54 +1,157 @@
 {% load static %}
-    {% if user.is_authenticated %}
-        <link rel="stylesheet" href="{% static 'myform/eventlist.css' %}">
-        <div class="even-box">
-            <div style="position: absolute; left: 565px; top: 50px;">
-                <button onclick="addEventBox()">
-                    <img src="{% static 'myform/images/plus.png' %}" width="25" height="25">
-                </button>
+
+<link rel="stylesheet" href="{% static 'myform/eventlist.css' %}">
+<div class="even-box">
+    <div style="position: absolute; left: 565px; top: 50px;">
+        <button onclick="addEventBox()">
+            <img src="{% static 'myform/images/plus.png' %}" width="25" height="25">
+        </button>
+    </div>
+    <div class="u-form-group">
+        <input type="eventname" placeholder="Event Name" />
+    </div>
+
+    <div id="event-body">
+        
+    
+    <div id="shortanswer">
+            <div id= "event-box0" class="answer-box">
+                <p class="btn" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Question</p>
+                <div class="u-form-group1">
+                    <input type="question" placeholder="Type Question" />
+                </div>
+                <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
+                <div class="dropdown">
+                    <button class="dropbtn">Select answer type</button>
+                    <div class="dropdown-content">
+                        <a onclick="changeToShortanswerBox(`event-box0`)">Short Answer</a>
+                        <a onclick="changeToMutianswerBox(`event-box0`)">Multiple Choice</a>
+                        <a onclick="changeToBoolanswerBox(`event-box0`)">Yes or No</a>
+                    </div>
+                </div>
+                <div class="u-form-group1">
+                    <input type="shortanswer" placeholder="Type Answer" />
+                </div>
+                
             </div>
-            <form method="post" action="{% url 'myform:create'%}">
-                {% csrf_token %}
-                <div class="u-form-group">
-                    <label>{{project_form.event_name}}</label>
+    </div>
+    <div id="multiplechoices">
+            <div id= "event-box0" class="answer-box">
+    
+                <p class="btn" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Question</p>
+                <div class="u-form-group1">
+                    <input type="question" placeholder="Type Question" />
                 </div>
-                <button type="submit">ADD EVENT</button>
-            </form>
-
-            <div id="event-body">
-                <div id="event-box0" class="answer-box">
-
-                    <p class="btn" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Question</p>
-                    <div class="u-form-group1">
-                        <input type="question" placeholder="Type Question"/>
+                <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
+                <div class="dropdown">
+                    <button class="dropbtn">Select answer type</button>
+                    <div class="dropdown-content">
+                        <a href="#">Short Answer</a>
+                        <a href="#">Multiple Choice</a>
+                        <a href="#">Yes or No</a>
                     </div>
-                    <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
-                    <div class="dropdown">
-                        <button class="dropbtn">Select answer type</button>
-                        <div class="dropdown-content">
-                            <a href="#">Short Answer</a>
-                            <a href="#">Multiple Choice</a>
-                            <a href="#">Yes or No</a>
+            </div>
+                <style> 
+                input[type=text] {
+                width: 60%;
+                padding: 10px 20px;
+                margin: 8px 0;
+                margin-left: 100px;
+                box-sizing: border-box;
+                border: none;
+                border-bottom: 2px solid gray;
+                opacity: 0.9;
+                }
+                </style>
+                <form>
+                    <div>
+                        <input type="checkbox"  name="scales"
+                               checked>
+                        <label for="scales"><input type="text" placeholder="Type choice" name="fname"></label>
+                    </div>  
+                     <div>
+                        <input type="checkbox" name="scales"
+                               checked>
+                        <label for="scales"><input type="text" placeholder="Type choice" name="fname"></label>
+                    </div>  
+                    <div>
+                            <input type="checkbox" name="scales"
+                                   checked>
+                            <label for="scales"><input type="text" placeholder="Type choice" name="fname"></label>
+                    </div>  
+                    
+                </form>
+            <div id= "yesorno" class="answer-box">
+    
+                        <p class="btn" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Question</p>
+                        <div class="u-form-group1">
+                            <input type="question" placeholder="Type Question" />
                         </div>
-                    </div>
-                </div>
+                        <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
+                        <div class="dropdown">
+                            <button class="dropbtn">Select answer type</button>
+                            <div class="dropdown-content">
+                                <a href="#">Short Answer</a>
+                                <a href="#">Multiple Choice</a>
+                                <a href="#">Yes or No</a>
+                            </div>
+                        </div>
+                        <div>
+                                <input type="checkbox" > Yes<br>
+                        </div>  
+                        <div>
+                                <input type="checkbox" > No<br>
+                        </div>  
+                        
             </div>
         </div>
-    {% else %}
-         Please <a href="{% url 'login'%}?next={{request.path}}">login</a> to view this page.
-    {% endif %}
+    </div>
+</div>
 
 <script>
         var eventBoxId = "event-box"
         var numCount = 0
         var eventbox = document.getElementById("event-box0")
         var eventBody = document.getElementById("event-body")
-
+    
         function addEventBox() {
             numCount++
-            var copiedBox = eventbox.cloneNode(true)
+            var copiedBox = eventbox.cloneNode(true)       
             copiedBox.id = eventBoxId + numCount
+            
+            listA = copiedBox.getElementsByTagName('A')
+            listA[0].setAttribute('onclick',"changeToShortanswerBox(eventBoxId + numCount)")
+            listA[1].setAttribute('onclick',"changeToMutianswerBox(eventBoxId + numCount)")
+            listA[2].setAttribute('onclick',"changeToBoolanswerBox(eventBoxId + numCount)")
+
             eventBody.innerHTML = eventBody.innerHTML + copiedBox.outerHTML
         }
 
+        var short = document.getElementById("shortanswer")
+        var multi = document.getElementById("multiplechoices")
+        var bool = document.getElementById("yesorno")
+
+        var copiedCloneshort = shortanswer.cloneNode(true)
+        var copiedClonemulti = multiplechoices.cloneNode(true)
+        var copiedClonebool = yesorno.cloneNode(true)
+
+        
+
+        // function changeToShortanswerBox(boxId){
+        //     #ต้องโคลนอีกรอบ
+        //     console.log("hi " + boxId)
+        // }
+
+        // function changeToMutianswerBox(boxId){
+            
+        //     console.log("hi " + boxId)
+        // }
+
+        // function changeToBoolanswerBox(boxId){
+            
+        //     console.log("hi " + boxId)
+        // }
+
+        // eventBody.innerHTML = ""
+        // addEventBox()
 </script>

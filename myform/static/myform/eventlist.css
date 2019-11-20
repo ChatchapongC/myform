@@ -16,7 +16,7 @@ body {
   -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
   box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
   opacity: 0.95;
-}
+} 
 .answer-box{
   position:relative;
   margin: 30px auto;
@@ -27,14 +27,17 @@ body {
   border-radius: 3px;
 
 }
+
+
 .u-form-group{
   width:100%;
   margin-top: 20px;
   margin-left:211px;
 }
-.u-form-group input[type="text"]
+.u-form-group input[type="eventname"],
+
 {
-  width: calc(50% - px);
+  width: 320px;
   height:50px;
   outline: none;
   border: 1px solid #ddd;
@@ -43,9 +46,10 @@ body {
   color: rgb(107, 107, 107);
   font-size:1.5rem;
   font-variant-position: inherit;
-}
+} 
 
-.u-form-group1 input[type="question"]
+.u-form-group1 input[type="question"],
+.u-form-group1 input[type="shortanswer"]
 {
   height:39px;
   width: 500px;
@@ -58,7 +62,7 @@ body {
   color: rgb(107, 107, 107);
   font-size:1.0rem;
   font-variant-position: inherit;
-}
+} 
 
 .btn {
   border: none;
@@ -66,8 +70,8 @@ body {
   padding: 14px 28px;
   cursor: pointer;
   display: inline-block;
-}
 
+}
 .btn1 {
   border: none;
   background-color: inherit;

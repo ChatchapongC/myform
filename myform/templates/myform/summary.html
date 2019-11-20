@@ -1,6 +1,6 @@
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'myform/evenlist.css' %}">
+<link rel="stylesheet" href="{% static 'myform/summary.css' %}">
 <div class="even-box">
     <div style="position: absolute; left: 565px; top: 50px;">
         <button onclick="addEventBox()">
@@ -9,25 +9,6 @@
     </div>
     <div class="u-form-group">
         <input type="eventname" placeholder="Event Name" />
-    </div>
-
-    <div id="event-body">
-        <div id= "event-box0" class="answer-box">
-
-            <p class="btn" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Question</p>
-            <div class="u-form-group1">
-                <input type="question" placeholder="Type Question" />
-            </div>
-            <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
-            <div class="dropdown">
-                <button class="dropbtn">Select answer type</button>
-                <div class="dropdown-content">
-                    <a href="#">Short Answer</a>
-                    <a href="#">Multiple Choice</a>
-                    <a href="#">Yes or No</a>
-                </div>
-            </div>
-        </div>
     </div>
     <div id="event-body">
             <div id= "event-box0" class="answer-box">
