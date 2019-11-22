@@ -2,156 +2,188 @@
 
 <link rel="stylesheet" href="{% static 'myform/eventlist.css' %}">
 <div class="even-box">
-    <div style="position: absolute; left: 565px; top: 50px;">
-        <button onclick="addEventBox()">
-            <img src="{% static 'myform/images/plus.png' %}" width="25" height="25">
-        </button>
-    </div>
-    <div class="u-form-group">
-        <input type="eventname" placeholder="Event Name" />
-    </div>
-
     <div id="event-body">
-        
-    
-    <div id="shortanswer">
-            <div id= "event-box0" class="answer-box">
-                <p class="btn" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Question</p>
-                <div class="u-form-group1">
-                    <input type="question" placeholder="Type Question" />
-                </div>
-                <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
-                <div class="dropdown">
-                    <button class="dropbtn">Select answer type</button>
-                    <div class="dropdown-content">
-                        <a onclick="changeToShortanswerBox(`event-box0`)">Short Answer</a>
-                        <a onclick="changeToMutianswerBox(`event-box0`)">Multiple Choice</a>
-                        <a onclick="changeToBoolanswerBox(`event-box0`)">Yes or No</a>
+        <div id="shortanswer" class="answer-box">
+                <div>
+                    <p class="btn" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Event Name</p>
+                    <div class="u-form-group1">
+                        <input type="question" placeholder="Type Event Name" />
                     </div>
-                </div>
-                <div class="u-form-group1">
-                    <input type="shortanswer" placeholder="Type Answer" />
-                </div>
-                
-            </div>
-    </div>
-    <div id="multiplechoices">
-            <div id= "event-box0" class="answer-box">
-    
-                <p class="btn" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Question</p>
-                <div class="u-form-group1">
-                    <input type="question" placeholder="Type Question" />
-                </div>
-                <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
-                <div class="dropdown">
-                    <button class="dropbtn">Select answer type</button>
-                    <div class="dropdown-content">
-                        <a href="#">Short Answer</a>
-                        <a href="#">Multiple Choice</a>
-                        <a href="#">Yes or No</a>
-                    </div>
-            </div>
-                <style> 
-                input[type=text] {
-                width: 60%;
-                padding: 10px 20px;
-                margin: 8px 0;
-                margin-left: 100px;
-                box-sizing: border-box;
-                border: none;
-                border-bottom: 2px solid gray;
-                opacity: 0.9;
-                }
-                </style>
-                <form>
-                    <div>
-                        <input type="checkbox"  name="scales"
-                               checked>
-                        <label for="scales"><input type="text" placeholder="Type choice" name="fname"></label>
-                    </div>  
-                     <div>
-                        <input type="checkbox" name="scales"
-                               checked>
-                        <label for="scales"><input type="text" placeholder="Type choice" name="fname"></label>
-                    </div>  
-                    <div>
-                            <input type="checkbox" name="scales"
-                                   checked>
-                            <label for="scales"><input type="text" placeholder="Type choice" name="fname"></label>
-                    </div>  
-                    
-                </form>
-            <div id= "yesorno" class="answer-box">
-    
-                        <p class="btn" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Question</p>
-                        <div class="u-form-group1">
-                            <input type="question" placeholder="Type Question" />
-                        </div>
-                        <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
-                        <div class="dropdown">
-                            <button class="dropbtn">Select answer type</button>
-                            <div class="dropdown-content">
-                                <a href="#">Short Answer</a>
-                                <a href="#">Multiple Choice</a>
-                                <a href="#">Yes or No</a>
+                    <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Question</p>
+                    <div class="dropdown">
+                        <button class="dropbtn">Select answer type</button>
+                        <div class="dropdown-content">
+                            <div id="myBtn">
+                                 <a>Short Answer</a>
                             </div>
+                            <div id="myMulti">
+                                 <a>Multiple Choice</a>
+                            </div>
+                            <div id="myBool">
+                                 <a>Yes or No</a>
+                            </div>
+                           
                         </div>
-                        <div>
-                                <input type="checkbox" > Yes<br>
-                        </div>  
-                        <div>
-                                <input type="checkbox" > No<br>
-                        </div>  
-                        
+                    </div>
+            
+                    
+                </div>
+            </div>
+            
+        <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div>
+                    <p class="btn" style="font-size: 1rem" style="color:rgb(255, 255, 255)">Question</p>
+                    <div class="u-form-group1">
+                        <input type="question" placeholder="Type Question" />
+                    </div>
+                    <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
+                    <div class="u-form-group1">
+                        <input type="shortanswer" placeholder="Type Answer" />
+                   </div>
+                   <button class="submit">submit</button>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+        
+        <div id="Multiple" class="multi">  
 
-<script>
-        var eventBoxId = "event-box"
-        var numCount = 0
-        var eventbox = document.getElementById("event-box0")
-        var eventBody = document.getElementById("event-body")
-    
-        function addEventBox() {
-            numCount++
-            var copiedBox = eventbox.cloneNode(true)       
-            copiedBox.id = eventBoxId + numCount
-            
-            listA = copiedBox.getElementsByTagName('A')
-            listA[0].setAttribute('onclick',"changeToShortanswerBox(eventBoxId + numCount)")
-            listA[1].setAttribute('onclick',"changeToMutianswerBox(eventBoxId + numCount)")
-            listA[2].setAttribute('onclick',"changeToBoolanswerBox(eventBoxId + numCount)")
+        <!-- Multi content -->
+            <div class="multi-content">
+                <span class="close">&times;</span>
+                <div>
+                    <p class="btn" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Question</p>
+                    <div class="u-form-group1">
+                        <input type="question" placeholder="Type Question" />
+                    </div>
+                    <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
+                    <style> 
+                    input[type=text] {
+                    width: 60%;
+                    padding: 10px 20px;
+                    margin: 8px 0;
+                    margin-left: 100px;
+                    box-sizing: border-box;
+                    border: none;
+                    border-bottom: 2px solid gray;
+                    opacity: 0.9;
+                    }
+                    </style>
+                    <form>
+                        <div>
+                            <input type="checkbox"  name="scales"
+                                checked>
+                            <label for="scales"><input type="text" placeholder="Type choice" name="fname"></label>
+                        </div>  
+                        <div>
+                            <input type="checkbox" name="scales"
+                                checked>
+                            <label for="scales"><input type="text" placeholder="Type choice" name="fname"></label>
+                        </div>  
+                        <div>
+                                <input type="checkbox" name="scales"
+                                    checked>
+                                <label for="scales"><input type="text" placeholder="Type choice" name="fname"></label>
+                        </div>  
+                    
+                    </form>
+                    <button class="submit">submit</button>
+            </div>
+        </div>
+        </div>
+ 
+        <div id="Bool" class="yesorno"> 
+        <!-- bool content -->
+            <div class="bool-content">
+                <span class="close">&times;</span>
+                <p class="btn" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Question</p>
+                <div class="u-form-group1">
+                    <input type="question" placeholder="Type Question" />
+                </div>
+                <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
+                <div style="position: absolute; left:400px; top:300px;">
+                        <input type="checkbox" > Yes<br>
+                </div>  
+                <div style="position: absolute; left:400px; top:330px;">
+                        <input type="checkbox" > No<br>
+                </div>  
+                <button class="submit">submit</button>
+            </div>
+        </div>   
+        
+        <script>
+        var modal = document.getElementById("myModal");
 
-            eventBody.innerHTML = eventBody.innerHTML + copiedBox.outerHTML
+        var multi = document.getElementById("Multiple");
+
+        var yesorno = document.getElementById("Bool");
+
+        var btn = document.getElementById("myBtn");
+         
+        var mtp = document.getElementById("myMulti")
+
+        var bol = document.getElementById("myBool")
+
+        var spanshort = document.getElementsByClassName("close")[0];
+
+        var spanmulti = document.getElementsByClassName("close")[1];
+
+        var spanbool = document.getElementsByClassName("close")[2];
+
+        // var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+        modal.style.display = "block";
+        multi.style.display = "none";
+        yesorno.style.display = "none";
         }
 
-        var short = document.getElementById("shortanswer")
-        var multi = document.getElementById("multiplechoices")
-        var bool = document.getElementById("yesorno")
+        mtp.onclick = function() {
+        multi.style.display = "block";
+        modal.style.display = "none";
+        yesorno.style.display = "none";
+        }
 
-        var copiedCloneshort = shortanswer.cloneNode(true)
-        var copiedClonemulti = multiplechoices.cloneNode(true)
-        var copiedClonebool = yesorno.cloneNode(true)
+        bol.onclick = function() {
+        yesorno.style.display = "block";
+        multi.style.display = "none";
+        modal.style.display = "none";
+        }
 
+        spanshort.onclick = function() {
+        modal.style.display = "none";
+        multi.style.display = "none";
+        yesorno.style.display = "none";
+        }
         
+        spanmulti.onclick = function() {
+        modal.style.display = "none";
+        multi.style.display = "none";
+        yesorno.style.display = "none";
+        }
 
-        // function changeToShortanswerBox(boxId){
-        //     #ต้องโคลนอีกรอบ
-        //     console.log("hi " + boxId)
-        // }
-
-        // function changeToMutianswerBox(boxId){
-            
-        //     console.log("hi " + boxId)
-        // }
-
-        // function changeToBoolanswerBox(boxId){
-            
-        //     console.log("hi " + boxId)
-        // }
-
-        // eventBody.innerHTML = ""
-        // addEventBox()
-</script>
+        spanbool.onclick = function() {
+        modal.style.display = "none";
+        multi.style.display = "none";
+        yesorno.style.display = "none";
+        }
+        
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            // modal.style.display = "none";
+            multi.style.display = "none";
+        }
+        elif (event.target == multi); {
+            // modal.style.display = "none";
+            multi.style.display = "none";
+        }
+        elif (event.target == yesorno); {
+            // modal.style.display = "none";
+            yesorno.style.display = "none";
+        }
+        }
+        
+        </script>
