@@ -11,7 +11,9 @@ class Event(models.Model):
 
     
 class Question(models.Model):
+
     question_text = models.CharField(max_length=100)
+    type_of_question = models.CharField(max_length=100)
 
     def was_published_recently(self):
         now = timezone.now()
@@ -21,16 +23,24 @@ class Question(models.Model):
         return self.question_text
 
 
-# class Choice(models.Model):
-#     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-#     choice_text = models.CharField(max_length=100)
+class Choice(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    if Question.type_of_question == "choice":
+        choice_text1 = models.CharField(max_length=100)
+        choice_text2 = models.CharField(max_length=100)
+        choice_text3 = models.CharField(max_length=100)
+        choice_text4 = models.CharField(max_length=100)
 
-#     def __str__(self):
-#         return self.choice_text
+
+    def __str__(self):
+        return self.choice_text
 
 class Answer(models.Model):
     question = models.ForeignKey(Question,on_delete=models.CASCADE)
     answer_text = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.answer_text
 
 
 
