@@ -28,8 +28,8 @@ class Choice(models.Model):
     if Question.question_text == "choice":
         choice = models.CharField(max_length=100)
 
-       def __str__(self):
-        return self.choice_text
+        def __str__(self):
+            return self.choice_text
 
 class Answer(models.Model):
     question = models.ForeignKey(Question,on_delete=models.CASCADE)
