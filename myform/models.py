@@ -25,20 +25,23 @@ class Question(models.Model):
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    if Question.type_of_question == "choice":
-        choice_text1 = models.CharField(max_length=100)
-        choice_text2 = models.CharField(max_length=100)
-        choice_text3 = models.CharField(max_length=100)
-        choice_text4 = models.CharField(max_length=100)
+    if Question.question_text == "choice":
+        choice = models.CharField(max_length=100)
 
-
-    def __str__(self):
+       def __str__(self):
         return self.choice_text
 
 class Answer(models.Model):
     question = models.ForeignKey(Question,on_delete=models.CASCADE)
-    answer_text = models.CharField(max_length=100)
+    if Question.question_text ==  "text":
+        question = models.ForeignKey(Question, on_delete=models.CASCADE)
+        answer_text = models.CharField(max_length=100)
 
+    elif Question.question_text == "choice":
+        choice = models.ForeignKey(Choice, related_name='', on_delete=models.CASCADE)
+        answer_text = models.CharField(max_length=100)
+
+    
     def __str__(self):
         return self.answer_text
 
