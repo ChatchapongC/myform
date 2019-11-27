@@ -33,11 +33,11 @@ class Choice(models.Model):
 
 class Answer(models.Model):
     question = models.ForeignKey(Question,on_delete=models.CASCADE)
-    if Question.question_text ==  "text":
+    if Question.type_of_question ==  "text":
         question = models.ForeignKey(Question, on_delete=models.CASCADE)
         answer_text = models.CharField(max_length=100)
 
-    elif Question.question_text == "choice":
+    elif Question.type_of_question == "choice":
         answer_text = models.ForeignKey(Choice, related_name='', on_delete=models.CASCADE)
 
     def __str__(self):
