@@ -1,6 +1,6 @@
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'myform/eventlist.css' %}">
+<link rel="stylesheet" href="{% static 'myform/summary.css' %}">
 <div class="even-box">
     <div style="position: absolute; left: 565px; top: 50px;">
         <button onclick="addEventBox()">
@@ -8,26 +8,7 @@
         </button>
     </div>
     <div class="u-form-group">
-        <input type="text" placeholder="Event Name" />
-    </div>
-
-    <div id="event-body">
-        <div id= "event-box0" class="answer-box">
-
-            <p class="btn" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Question</p>
-            <div class="u-form-group1">
-                <input type="question" placeholder="Type Question" />
-            </div>
-            <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
-            <div class="dropdown">
-                <button class="dropbtn">Select answer type</button>
-                <div class="dropdown-content">
-                    <a href="#">Short Answer</a>
-                    <a href="#">Multiple Choice</a>
-                    <a href="#">Yes or No</a>
-                </div>
-            </div>
-        </div>
+        <input type="eventname" placeholder="Event Name" />
     </div>
     <div id="event-body">
             <div id= "event-box0" class="answer-box">
@@ -67,7 +48,7 @@
                         <a href="#">Yes or No</a>
                     </div>
                 </div>
-                <style>
+                <style> 
                 input[type=text] {
                 width: 60%;
                 padding: 10px 20px;
@@ -84,17 +65,17 @@
                         <input type="checkbox"  name="scales"
                                checked>
                         <label for="scales"><input type="text" placeholder="Type choice" name="fname"></label>
-                    </div>
+                    </div>  
                      <div>
                         <input type="checkbox" name="scales"
                                checked>
                         <label for="scales"><input type="text" placeholder="Type choice" name="fname"></label>
-                    </div>
+                    </div>  
                     <div>
                             <input type="checkbox" name="scales"
                                    checked>
                             <label for="scales"><input type="text" placeholder="Type choice" name="fname"></label>
-                    </div>
+                    </div>  
 
                 </form>
             <div id= "event-box0" class="answer-box">
@@ -114,10 +95,10 @@
                         </div>
                         <div>
                                 <input type="checkbox" > Yes<br>
-                        </div>
+                        </div>  
                         <div>
                                 <input type="checkbox" > No<br>
-                        </div>
+                        </div>  
 
             </div>
 
@@ -129,9 +110,11 @@
         var numCount = 0
         var eventbox = document.getElementById("event-box0")
         var eventBody = document.getElementById("event-body")
-
+    
         function addEventBox() {
             numCount++
-            var copiedBox = eventbox.cloneNode(true)
+            var copiedBox = eventbox.cloneNode(true)       
             copiedBox.id = eventBoxId + numCount
             eventBody.innerHTML = eventBody.innerHTML + copiedBox.outerHTML
+        }
+</script>
