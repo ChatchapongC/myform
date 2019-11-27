@@ -1,7 +1,7 @@
 {% load static %}
 
 <link rel="stylesheet" href="{% static 'myform/eventlist.css' %}">
-<div class="even-box">
+<div class="even-box" id="evenbox">
     <div id="event-body">
         <div id="shortanswer" class="answer-box">
                 <div>
@@ -25,7 +25,6 @@
                            
                         </div>
                     </div>
-            
                     
                 </div>
             </div>
@@ -61,6 +60,10 @@
                     </div>
                     <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
                     <style> 
+                    input[type=checkbox]{
+                    position: absolute; 
+                    left:380px; 
+                    }
                     input[type=text] {
                     width: 60%;
                     padding: 10px 20px;
@@ -72,23 +75,15 @@
                     opacity: 0.9;
                     }
                     </style>
-                    <form>
-                        <div>
-                            <input type="checkbox"  name="scales"
-                                checked>
-                            <label for="scales"><input type="text" placeholder="Type choice" name="fname"></label>
-                        </div>  
-                        <div>
-                            <input type="checkbox" name="scales"
-                                checked>
-                            <label for="scales"><input type="text" placeholder="Type choice" name="fname"></label>
-                        </div>  
-                        <div>
-                                <input type="checkbox" name="scales"
+                    <form method="POST">
+                         <div id="dynamicInput">
+                             <br><input type="checkbox"  name="scales"
                                     checked>
-                                <label for="scales"><input type="text" placeholder="Type choice" name="fname"></label>
-                        </div>  
-                    
+                             <input type="text" name="myInputs[]">
+                     
+                         </div>
+                         
+                         <input  class="addchoice" type="button" value="Add Choices" onClick="addInput('dynamicInput');">
                     </form>
                     <button class="submit">submit</button>
             </div>
@@ -176,14 +171,40 @@
             // modal.style.display = "none";
             multi.style.display = "none";
         }
-        elif (event.target == multi); {
+        else if (event.target == multi) {
             // modal.style.display = "none";
             multi.style.display = "none";
         }
-        elif (event.target == yesorno); {
+        else if (event.target == yesorno); {
             // modal.style.display = "none";
             yesorno.style.display = "none";
         }
         }
         
+
+        var counter = 0;
+        var limit = 10;
+        var x=0;
+        function addInput(divName){
+             if (counter == limit)  {
+                  alert("You have reached the limit of adding " + counter + " inputs");
+             }
+             else {
+                  x++;
+                  var newdiv = document.createElement('div');
+                  newdiv.setAttribute("id", `input${x}`);
+                  newdiv.innerHTML = `<br><input type='checkbox' name='scales'><br><input type='text' name='myInputs[]'><input  class="delete" type="button" value="delete" onClick="removeElement('input${x}')">`;
+                  document.getElementById(divName).appendChild(newdiv);
+                  counter++;
+             } 
+        }
+        function removeElement(divName) {
+            var jo = document.getElementById(divName);
+            //     alert(jo);
+            // var jo = document.getElementById(divName).value;
+                jo.remove();
+                counter--;
+            }      
+        
         </script>
+        

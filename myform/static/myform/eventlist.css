@@ -35,18 +35,6 @@ body {
   margin-left:211px;
 }
 
-/* .u-form-group2 input[type="eventname"],
-{
-  width: 320px;
-  height:100px;
-  outline: none;
-  border: 1px solid #ddd;
-  padding: 0 10px;
-  border-radius: 2px;
-  color: rgb(107, 107, 107);
-  font-size:1.5rem;
-  font-variant-position: inherit;
-}  */
 
 .u-form-group1 input[type="question"],
 .u-form-group1 input[type="shortanswer"]
@@ -222,3 +210,19 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
+
+.addchoice{
+    background-color: rgb(146, 152, 238);
+    color: white;
+    padding: 16px;
+    border: none;
+    margin-left: 500px;
+    margin-top: 20px;
+    height: 45px;
+}
+
+.evenbox
+{
+     height: 100%;
+     overflow: auto;
+ }
