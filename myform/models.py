@@ -17,7 +17,6 @@ class Question(models.Model):
     question_text = models.CharField(max_length=100)
     type_of_question = models.CharField(max_length=100)
 
-
     def __str__(self):
         return self.question_text
 
@@ -25,15 +24,15 @@ class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=100)
 
+
     def __str__(self):
         return self.choice_text
 
-class Answer(models.Model):
-    question = models.ForeignKey(Question,on_delete=models.CASCADE)
-    answer_text = models.CharField(max_length=100)
 
-    def __str__(self):
-        return self.answer_text
+class Responds(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    choice = models.ForeignKey(Choice, on_delete=models.CASCADE)
+    text = models.CharField(max_length=100)
 
 
 
