@@ -16,36 +16,29 @@ body {
   -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
   box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
   opacity: 0.95;
-}
-.answer-box{
-  position:relative;
-  margin: 30px auto;
-  width: 590px;
-  height: auto;
-  background-color:white;
-  padding: 10px;
-  border-radius: 3px;
+} 
 
+.answer-box{
+  position: relative;
+  margin: 70px 100;
+  width: 590px;
+  padding: 10px;
+  height: auto;
+  background-color: white;
+  border-radius: 3px;
 }
+
+
 .u-form-group{
   width:100%;
   margin-top: 20px;
   margin-left:211px;
 }
-.u-form-group input[type="text"]
-{
-  width: calc(50% - px);
-  height:50px;
-  outline: none;
-  border: 1px solid #ddd;
-  padding: 0 10px;
-  border-radius: 2px;
-  color: rgb(107, 107, 107);
-  font-size:1.5rem;
-  font-variant-position: inherit;
-}
 
-.u-form-group1 input[type="question"]
+
+.u-form-group1 input[type="question"],
+.u-form-group1 input[type="shortanswer"]
+/* .u-form-group1 input[type="eventname"], */
 {
   height:39px;
   width: 500px;
@@ -58,7 +51,7 @@ body {
   color: rgb(107, 107, 107);
   font-size:1.0rem;
   font-variant-position: inherit;
-}
+} 
 
 .btn {
   border: none;
@@ -66,8 +59,8 @@ body {
   padding: 14px 28px;
   cursor: pointer;
   display: inline-block;
-}
 
+}
 .btn1 {
   border: none;
   background-color: inherit;
@@ -84,6 +77,16 @@ body {
   font-size: 16px;
   border: none;
   margin-left: -70px;
+  margin-top: 20px;
+  height: 45px;
+}
+
+.submit {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  border: none;
+  margin-left: 530px;
   margin-top: 20px;
   height: 45px;
 }
@@ -114,3 +117,112 @@ body {
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.multi {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+.yesorno {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color:rgb(241, 207, 195);
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+.multi-content {
+  background-color: rgb(241, 207, 195);
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+.bool-content {
+  background-color: rgb(241, 207, 195);
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+.-content {
+  background-color: #ffffff;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.addchoice{
+    background-color: rgb(146, 152, 238);
+    color: white;
+    padding: 16px;
+    border: none;
+    margin-left: 500px;
+    margin-top: 20px;
+    height: 45px;
+}
+
+.evenbox
+{
+     height: 100%;
+     overflow: auto;
+ }

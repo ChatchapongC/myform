@@ -4,5 +4,5 @@ social-auth-app-django
 coverage
 HEAD
 gunicorn
-django>=2.1.11
+django
 
