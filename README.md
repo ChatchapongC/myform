@@ -6,7 +6,7 @@
 **Table of contents**
 - [Description](#description)
 - [Team members](#team-members)
-- [Documents](#documents)
+- [Documents](#project-documents)
 - [Installation](#installing)
 - [How to Run](#run-application)
 
