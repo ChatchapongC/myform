@@ -26,6 +26,3 @@ class Event(models.Model):
         return self.event_text
 
 class Answer(models.Model):
-text
-multiple
-boolean
