@@ -8,7 +8,7 @@ class Question(models.Model):
     question_text = models.CharField(max_length=100)
     
     def __str__(self):
-        return self.question_textgit
+        return self.question_text
 
 
 class Choice(models.Model):
@@ -24,5 +24,3 @@ class Event(models.Model):
     
     def __str__(self):
         return self.event_text
-
-class Answer(models.Model):
