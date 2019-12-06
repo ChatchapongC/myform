@@ -8,5 +8,5 @@ urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('event/', IndexView.as_view(), name='event'),
     path('project/', CreateProjectView.as_view(), name='project'),
-    path('create/', create_form, name='create')
+    path('create/', create_form, name='create'),
 ]

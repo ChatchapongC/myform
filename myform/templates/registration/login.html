@@ -7,7 +7,11 @@
     <a href="{% url 'signup' %}" id="signup-box-link">Sign Up</a>
   </div>
   {% if user.is_authenticated %}
-     <button class="btn Entersite"><a href="{% url 'myform:event' %}">Entersite</a></button>
+    <div style="position: absolute; left: 400px; top:330px;">
+      <a href="{% url 'myform:event' %}">
+          <img src="{% static 'myform/images/entersite.png' %}" width="100" height="54">
+      </a>
+   </div>
   {% else %}
     <form class="social-login">
       <a href="{% url 'social:begin' 'facebook' %}">
@@ -37,10 +41,10 @@
             </div>
       {% endfor %}
     </form>
-        <div style="position: absolute; left: 730px; top: 456px;">
-        <a href="{% url 'myform:event' %}">
-             <img src="{% static 'myform/images/entersite.png' %}" width="110" height="64">
-        </a>
-      </div>
+        <div style="position: absolute; left: 210px; top: 415px;">
+            <a href="{% url 'myform:event' %}">
+                <img src="{% static 'myform/images/entersite.png' %}" width="100" height="54">
+            </a>
+        </div>
   {% endif %}
 </div>
