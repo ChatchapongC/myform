@@ -1,10 +1,9 @@
 {% load static %}
 {% block content %}
-    {% if user.is_authenticated %}
-        <div style="position: absolute; left: 1160px; top: 10px; font-size: 0.9rem;"> 
+        <div style="position: absolute; left: 1160px; top: 10px; font-size: 0.9rem;">
             <p>Hello {{ user.first_name|default:user.username}}!</p>
         </div>
-       
+
         {% for ass in backends.associated %}
             {% if ass.provider == 'facebook' %}
                 <div class="col-md-6 text-center">
@@ -25,6 +24,13 @@
                 </div>
             {% endif %}
         {% endfor %}
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         <div style="position: absolute; left: 1180px; top: 45px;">
                 <a href="{% url 'logout'%}?next={{request.path}}">
                     <img src="{% static 'myform/images/logout.png' %}" width="65" height="35">
@@ -37,15 +43,18 @@
                 <i>Even List</i>
             </div>
             {% for event in event_list %}
-                <li>{{event.event_name}}</li>
+                <li><a href="{% url 'myform:evaluator' event.id %}">{{ event.event_name }}</a></li>
             {% endfor %}
         </div>
         <div class="even-box1">
             <div class="lb-header">
                 <s>My Event</s>
             </div>
+            {% for event in my_event %}
+                <li><a href="{% url 'myform:edit' event.id %}">{{ event }}</a></li>
+            {% endfor %}
             <button class="btn Event"><a href="{% url 'myform:create' %}">+ Create Event</a></button>
         </div>
-    {% endif %}
+
 {% endblock %}
 

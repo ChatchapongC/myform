@@ -1,11 +1,10 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.forms import EmailInput, TextInput, PasswordInput, Field
-from .models import Event
+from .models import Event, Question, Evaluation
 
 
 class UserRegistrationForm(forms.ModelForm):
-
     class Meta:
         model = User
         fields = ['email', 'username', 'password']
@@ -16,10 +15,31 @@ class UserRegistrationForm(forms.ModelForm):
         }
 
 
-class EvaluateForm(forms.ModelForm):
+class EventForm(forms.ModelForm):
     class Meta:
         model = Event
-        fields = ['event_name']
+        fields = ['event_name', ]
         widgets = {
-            'event_name': TextInput(attrs={'placeholder': 'Event Name'})
+            'event_name': TextInput(attrs={'placeholder': 'Event Name',
+                                           'type': 'question'}),
+        }
+
+
+class AddQuestion(forms.ModelForm):
+    class Meta:
+        model = Question
+        fields = ['question_text']
+        widgets = {
+            'question_text': TextInput(attrs={'placeholder': 'Type question',
+                                              'type': 'question'}),
+        }
+
+
+class EvaluatorForm(forms.ModelForm):
+    class Meta:
+        model = Evaluation
+        fields = ['event_name', ]
+        widgets = {
+            'event_name': TextInput(attrs={'placeholder': 'Event Name',
+                                           'type': 'question'}),
         }

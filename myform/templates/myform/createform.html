@@ -1,5 +1,5 @@
 {% load static %}
-
+{% if user.is_authenticated %}
 <link rel="stylesheet" href="{% static 'myform/eventlist.css' %}">
 <div class="even-box" id="evenbox">
     <div id="event-body">
@@ -7,7 +7,28 @@
                 <div>
                     <p class="btn" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Event Name</p>
                     <div class="u-form-group1">
-                        <input type="question" placeholder="Type Event Name" />
+<!--                    {% for message in messages %}-->
+<!--                    <div class="alert alert-warning text-center">-->
+<!--                    <a class="close" href="#" data-dismiss="alert">×</a><strong>Sorry!</strong> {{ message }}-->
+<!--                    </div>-->
+<!--                    {% endfor %}-->
+                        {% if event.id %}
+                            <form method="post" action="{% url 'myform:edit' event.id %}">
+                            {% csrf_token %}
+                                 <label>{{event_form.event_name}}</label>
+                            <button type="submit" class="btn btn-secondary">Update</button>
+                            </form>
+                            <form method="post" action="{% url 'myform:delete' event.id %}">
+                                {% csrf_token %}
+                                <button id="{{event.id}}" class="btn btn-light" type="submit">Delete</button>
+                            </form>
+                        {% else %}
+                            <form method="post" action="{% url 'myform:create' %}">
+                                {% csrf_token %}
+                                     <label>{{event_form.event_name}}</label>
+                                <button type="submit" class="btn btn-secondary">Submit</button>
+                             </form>
+                        {% endif %}
                     </div>
                     <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Question</p>
                     <div class="dropdown">
@@ -22,35 +43,35 @@
                             <div id="myBool">
                                  <a>Yes or No</a>
                             </div>
-                           
+
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
-            
+            <div id="questionbox" class="answer-box">
+            </div>
+
         <div id="myModal" class="modal">
 
-        <!-- Modal content -->
+<!--         Modal content-->
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <div>
-                    <p class="btn" style="font-size: 1rem" style="color:rgb(255, 255, 255)">Question</p>
-                    <div class="u-form-group1">
-                        <input type="question" placeholder="Type Question" />
-                    </div>
-                    <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
-                    <div class="u-form-group1">
-                        <input type="shortanswer" placeholder="Type Answer" />
-                   </div>
-                   <button class="submit">submit</button>
-                </div>
+                    <form method="post" action="{% url 'myform:create'%}">
+                        {% csrf_token %}
+                        <div class="u-form-group1">
+                            <p class="btn" style="font-size: 1rem" style="color:rgb(255, 255, 255)">Question</p>
+                                    <label>{{question_form.question_text}}</label>
+<!--                                <input type="question" placeholder="Type Question" />-->
+                           <button class="submit" type="submit">add</button>
+                        </div>
+                    </form>
             </div>
         </div>
-        
-        <div id="Multiple" class="multi">  
 
-        <!-- Multi content -->
+        <div id="Multiple" class="multi">
+
+         Multi content
             <div class="multi-content">
                 <span class="close">&times;</span>
                 <div>
@@ -59,10 +80,10 @@
                         <input type="question" placeholder="Type Question" />
                     </div>
                     <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
-                    <style> 
+                    <style>
                     input[type=checkbox]{
-                    position: absolute; 
-                    left:380px; 
+                    position: absolute;
+                    left:380px;
                     }
                     input[type=text] {
                     width: 60%;
@@ -80,17 +101,17 @@
                              <br><input type="checkbox"  name="scales"
                                     checked>
                              <input type="text" name="myInputs[]">
-                     
+
                          </div>
-                         
+
                          <input  class="addchoice" type="button" value="Add Choices" onClick="addInput('dynamicInput');">
                     </form>
                     <button class="submit">submit</button>
             </div>
         </div>
         </div>
- 
-        <div id="Bool" class="yesorno"> 
+
+        <div id="Bool" class="yesorno">
         <!-- bool content -->
             <div class="bool-content">
                 <span class="close">&times;</span>
@@ -101,14 +122,17 @@
                 <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
                 <div style="position: absolute; left:400px; top:300px;">
                         <input type="checkbox" > Yes<br>
-                </div>  
+                </div>
                 <div style="position: absolute; left:400px; top:3px;">
                         <input type="checkbox" > No<br>
-                </div>  
+                </div>
                 <button class="submit">submit</button>
             </div>
-        </div>   
-        
+        </div>
+    {% else %}
+        <a href="{% url 'login'%}">Login</a> or <a href="{% url 'signup'%}">Signup</a>
+{% endif %}
+
         <script>
         var modal = document.getElementById("myModal");
 
@@ -117,7 +141,7 @@
         var yesorno = document.getElementById("Bool");
 
         var btn = document.getElementById("myBtn");
-         
+
         var mtp = document.getElementById("myMulti")
 
         var bol = document.getElementById("myBool")
@@ -153,7 +177,7 @@
         multi.style.display = "none";
         yesorno.style.display = "none";
         }
-        
+
         spanmulti.onclick = function() {
         modal.style.display = "none";
         multi.style.display = "none";
@@ -165,7 +189,7 @@
         multi.style.display = "none";
         yesorno.style.display = "none";
         }
-        
+
         window.onclick = function(event) {
         if (event.target == modal) {
             // modal.style.display = "none";
@@ -180,7 +204,7 @@
             yesorno.style.display = "none";
         }
         }
-        
+
 
         var counter = 0;
         var limit = 10;
@@ -196,7 +220,7 @@
                   newdiv.innerHTML = `<br><input type='checkbox' name='scales'><br><input type='text' name='myInputs[]'><input  class="delete" type="button" value="delete" onClick="removeElement('input${x}')">`;
                   document.getElementById(divName).appendChild(newdiv);
                   counter++;
-             } 
+             }
         }
         function removeElement(divName) {
             var jo = document.getElementById(divName);
@@ -204,7 +228,7 @@
             // var jo = document.getElementById(divName).value;
                 jo.remove();
                 counter--;
-            }      
-        
+            }
+
         </script>
         
