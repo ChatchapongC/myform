@@ -12,7 +12,7 @@ body {
   -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
   -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
   box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
-  opacity: 0.7;
+  opacity: 0.9;
 }
 .even-box1{
   position:relative;

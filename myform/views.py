@@ -20,6 +20,9 @@ class HomeView(TemplateView):
 class CreateProjectView(TemplateView):
     template_name = 'myform/projectlist.html'
 
+class ContactView(TemplateView):
+    template_name = 'myform/contact.html'
+
 
 def create_form(request):
     if request.method == 'POST':
