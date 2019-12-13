@@ -9,7 +9,8 @@ class Event(models.Model):
     date_of_event = models.DateField(default = timezone.now)
     
     def __str__(self):
-        return self.event_text
+        return self.event_name
+
 
 class Question(models.Model):
     event = models.ForeignKey(Event,on_delete = models.CASCADE)
@@ -26,6 +27,7 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
+
 
 class Evaluator(models.Model):
     event_name = models.ForeignKey(Event, on_delete=models.CASCADE)

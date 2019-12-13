@@ -28,12 +28,7 @@
         <div style="position: absolute; left: 1180px; top: 45px;">
                 <a href="{% url 'logout'%}?next={{request.path}}">
                     <img src="{% static 'myform/images/logout.png' %}" width="65" height="35">
-<<<<<<< master
-                </a>
-=======
-                </a> {% endcomment %}
-        {% comment %} </div> {% endcomment %}
-       
+
         <link rel="stylesheet" href="{% static 'myform/index.css' %}">
         <style>
                                
@@ -55,15 +50,14 @@
             background-color: #777;
             }
         </style>
-        </head>
-        <body>
+
 
         <div class="scrollmenu">
         <a href="#home">Event</a>
         <a href="#about">About</a>  
         <a href="{% url 'myform:contact' %}">Contact</a>
         <a href="href=#">Logout</a>
->>>>>>> local
+
         </div>
         <!-- <a href="{% url 'logout'%}?next={{request.path}}">logout</a> -->
         <link rel="stylesheet" href="{% static 'myform/index.css' %}">
