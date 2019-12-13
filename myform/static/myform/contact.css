@@ -1,0 +1,77 @@
+body {
+    background-image:url("images/tri.png");
+  }
+  .even-box{
+    position:relative;
+    margin: 10px auto;
+    width: 800px;
+    height: 385px;
+    background-color:ghostwhite;
+    padding: 10px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
+    -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
+    opacity: 0.9;
+  }
+  .even-box1{
+    position:relative;
+    margin: 10px auto;
+    width: 800px;
+    height: 200px;
+    background-color: rgb(167, 187, 186);
+    padding: 10px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
+    -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
+    opacity: 0.85;
+  }
+  .lb-header{
+    position:relative;
+    color: #00415d;
+    margin: 5px 5px 10px 5px;
+    padding-bottom:10px;
+    border-bottom: 1px solid #eee;
+    text-align:center;
+    height:28px;
+  }
+  .lb-header i{
+    margin: 0 25px;
+    padding: 0 20px;
+    text-decoration: none;
+    color: rgb(22, 22, 22);
+    font-weight: bold;
+    font-size: 30px;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+  }
+  
+  .lb-header s{
+    margin: 0 25px;
+    padding: 0 20px;
+    text-decoration: none;
+    color: rgb(56, 56, 56);
+    font-weight: bold;
+    font-size: 20px;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+  }
+  
+  .btn {
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top:12%;
+    margin-left:39%;
+  }
+  
+  .btn:hover {background: #eee;}
+  
+  .Event {color:rgb(56, 56, 56)}
+  

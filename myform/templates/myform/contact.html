@@ -1,0 +1,54 @@
+{% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'myform/contact.css' %}">
+
+
+<style>
+                               
+div.scrollmenu {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+div.scrollmenu a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+  background-color: #777;
+}
+</style>
+
+
+<div class="scrollmenu">
+  <a href="#home">Event</a>
+  <a href="#about">About</a>  
+  <a href="{% url 'myform:contact' %}">Contact</a>
+  <a href="#support">Logout</a>
+</div>
+
+<div>
+    <div style="position: absolute; left: 1080px; top:450px;"> 
+        <a href="https://github.com/ingkharatj">
+            <img src="{% static 'myform/images/ing.jpeg' %}" width="70" height="65"  >
+        </a>
+    </div> 
+    <div style="position: absolute; left: 930px; top:370px;"> 
+        <a href="https://github.com/JirawadeeSampusri">
+            <img src="{% static 'myform/images/worroar.jpeg' %}" width="70" height="65" border:"1px solid navy">
+        </a>
+    </div> 
+    <div style="position: absolute; left: 720px; top:530px;"> 
+        <a href="https://github.com/ChatchapongC">
+            <img src="{% static 'myform/images/chut.jpeg' %}" width="70" height="65" >
+        </a>
+    </div> 
+</div>
+
+
+
