@@ -64,7 +64,8 @@ def event_edit(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     print(event.owner, event.event_name, event.id)
     if request.user != event.owner:
-        return redirect('event')
+        messages.error(request, 'This is not your own form')
+        return HttpResponseRedirect(reverse('myform:evaluator', kwargs={'event_id':event_id}))
     if request.method == 'POST':
         form = EventForm(request.POST, instance=event)
         if form.is_valid:
