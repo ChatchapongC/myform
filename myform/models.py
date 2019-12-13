@@ -27,6 +27,7 @@ class Choice(models.Model):
     def __str__(self):
         return self.choice_text
 
+
 class Evaluator(models.Model):
     event_name = models.ForeignKey(Event, on_delete=models.CASCADE)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
