@@ -26,10 +26,13 @@ div.scrollmenu a:hover {
 
 
 <div class="scrollmenu">
-  <a href="#home">Event</a>
-  <a href="#about">About</a>  
-  <a href="#contact">Contact</a>
-  <a href="#support">Logout</a>
+    <a href="{% url 'myform:event' %}">Event</a>
+    <a href="#about">About</a>  
+    <a href="{% url 'myform:contact' %}">Contact</a>
+    <a href="href=#">Logout</a>
+    <div style="position: absolute; left: 1160px; top: 10px; font-size: 0.9rem; color:white;"> 
+        <p>Hello {{ user.first_name|default:user.username}}!</p>
+    </div>
 </div>
 
 

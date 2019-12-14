@@ -212,7 +212,7 @@ body {
 }
 
 .addchoice{
-    background-color: rgb(146, 152, 238);
+    background-color: rgb(186, 230, 243);
     color: white;
     padding: 16px;
     border: none;
@@ -226,3 +226,5 @@ body {
      height: 100%;
      overflow: auto;
  }
+
+ 

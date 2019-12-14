@@ -26,29 +26,25 @@ div.scrollmenu a:hover {
 
 
 <div class="scrollmenu">
-  <a href="#home">Event</a>
-  <a href="#about">About</a>  
-  <a href="{% url 'myform:contact' %}">Contact</a>
-  <a href="#support">Logout</a>
+    <a href="{% url 'myform:event' %}">Event</a>
+    <a href="#about">About</a>  
+    <a href="{% url 'myform:contact' %}">Contact</a>
+    <a href="href=#">Logout</a>
+    <div style="position: absolute; left: 1160px; top: 10px; font-size: 0.9rem; color:white;"> 
+        <p>Hello {{ user.first_name|default:user.username}}!</p>
+    </div>
 </div>
 
-<div>
-    <div style="position: absolute; left: 1080px; top:450px;"> 
-        <a href="https://github.com/ingkharatj">
-            <img src="{% static 'myform/images/ing.jpeg' %}" width="70" height="65"  >
-        </a>
-    </div> 
-    <div style="position: absolute; left: 930px; top:370px;"> 
-        <a href="https://github.com/JirawadeeSampusri">
-            <img src="{% static 'myform/images/worroar.jpeg' %}" width="70" height="65" border:"1px solid navy">
-        </a>
-    </div> 
-    <div style="position: absolute; left: 720px; top:530px;"> 
-        <a href="https://github.com/ChatchapongC">
-            <img src="{% static 'myform/images/chut.jpeg' %}" width="70" height="65" >
-        </a>
-    </div> 
+
+<div class="contact-box" >
+    <div class="text">
+        <p ><b>Github</b></p>
+        <p >JirawadeeSampusri</p>
+        <p >ChatchapongC</p>
+        <p >ingkharatj</p>
+    </div>
 </div>
+
 
 
 
