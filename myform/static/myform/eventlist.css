@@ -166,7 +166,7 @@ body {
 .modal-content {
   background-color:rgb(241, 207, 195);
   margin: auto;
-  padding: 20px;
+  padding: 5px;
   border: 1px solid #888;
   width: 50%;
 }
@@ -174,9 +174,9 @@ body {
 .multi-content {
   background-color: rgb(241, 207, 195);
   margin: auto;
-  padding: 20px;
   border: 1px solid #888;
   width: 50%;
+  
 }
 
 .bool-content {
@@ -212,7 +212,7 @@ body {
 }
 
 .addchoice{
-    background-color: rgb(186, 230, 243);
+    background-color: rgb(2, 2, 2);
     color: white;
     padding: 16px;
     border: none;

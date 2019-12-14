@@ -22,12 +22,12 @@ div.scrollmenu a {
 div.scrollmenu a:hover {
   background-color: #777;
 }
+
 </style>
 
 
 <div class="scrollmenu">
-    <a href="{% url 'myform:event' %}">Event</a>
-    <a href="#about">About</a>  
+    <a href="{% url 'myform:event' %}">Event</a> 
     <a href="{% url 'myform:contact' %}">Contact</a>
     <a href="href=#">Logout</a>
     <div style="position: absolute; left: 1160px; top: 10px; font-size: 0.9rem; color:white;"> 
@@ -59,7 +59,7 @@ div.scrollmenu a:hover {
                             <div id="myBool">
                                  <a>Yes or No</a>
                             </div>
-                           
+
                         </div>
                     </div>
                     
@@ -88,7 +88,7 @@ div.scrollmenu a:hover {
         <div id="Multiple" class="multi">  
 
         <!-- Multi content -->
-            <div class="multi-content">
+            <div class="multi-content" style="width:50%;height:500px;line-height:3em;overflow:auto;padding:5px;">
                 <span class="close">&times;</span>
                 <div>
                     <p class="btn" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Question</p>
@@ -111,13 +111,16 @@ div.scrollmenu a:hover {
                     border-bottom: 2px solid gray;
                     opacity: 0.9;
                     }
+                
                     </style>
+
                     <form method="POST">
                          <div id="dynamicInput">
-                             <br><input type="checkbox"  name="scales"
-                                    checked>
-                             <input type="text" name="myInputs[]">
-                     
+                            <div>
+                                <input type="checkbox"  name="scales" value="1"
+                                        checked>
+                                <input type="text" name="myInputs[]">
+                            </div>
                          </div>
                          
                          <input  class="addchoice" type="button" value="Add Choices" onClick="addInput('dynamicInput');">
@@ -129,20 +132,19 @@ div.scrollmenu a:hover {
  
         <div id="Bool" class="yesorno"> 
         <!-- bool content -->
-            <div class="bool-content">
+            <div class="modal-content">
                 <span class="close">&times;</span>
-                <p class="btn" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Question</p>
-                <div class="u-form-group1">
-                    <input type="question" placeholder="Type Question" />
+                <div>
+                    <p class="btn" style="font-size: 1rem" style="color:rgb(255, 255, 255)">Question</p>
+                    <div class="u-form-group1">
+                        <input type="question" placeholder="Type Question" />
+                    </div>
+                    <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
+                    <div class="u-form-group1">
+                        <input type="shortanswer" placeholder="Type Answer" />
+                   </div>
+                   <button class="submit">submit</button>
                 </div>
-                <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
-                <div style="position: absolute; left:400px; top:300px;">
-                        <input type="checkbox" > Yes<br>
-                </div>  
-                <div style="position: absolute; left:400px; top:3px;">
-                        <input type="checkbox" > No<br>
-                </div>  
-                <button class="submit">submit</button>
             </div>
         </div>   
         
