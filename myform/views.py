@@ -44,7 +44,6 @@ def create_event(request):
             event_form = event_form.save(commit=False)
             event_form.owner = request.user
             event_form.save()
-            print(event_form.owner)
             messages.success(
                 request, "Event added successfully",
                 extra_tags='alert alert-success alert-dismissible fade show')
@@ -62,7 +61,6 @@ def create_event(request):
 
 def event_edit(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
-    print(event.owner, event.event_name, event.id)
     if request.user != event.owner:
         messages.error(request, 'This is not your own form')
         return HttpResponseRedirect(reverse('myform:evaluator', kwargs={'event_id':event_id}))
@@ -109,7 +107,6 @@ class IndexView(generic.ListView):
         event = super().get_queryset()
         context = super(IndexView, self).get_context_data(**kwargs)
         if self.request.user.is_authenticated:
-            print(self.request.user.id)
             context['my_event'] = event.filter(owner=self.request.user.id)
         return context
 
