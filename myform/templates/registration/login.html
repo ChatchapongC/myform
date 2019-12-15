@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{% static 'myform/login.css' %}">
 <div class="login-box">
   <div class="lb-header">
-    <a class="active" id="login-box-link" href="{% url 'login' %}">Login</a>
+    <a class="active" id="login-box-link" href="{% url 'login' %}" id="login-head">Login</a>
     <a href="{% url 'signup' %}" id="signup-box-link">Sign Up</a>
   </div>
   {% if user.is_authenticated %}
@@ -26,13 +26,13 @@
     <form method="post" class="username-login" action="{% url 'login'%}?next={{request.path}}">
       {% csrf_token %}
       <div class="u-form-group">
-        <input name='username' type="text" placeholder="username"/>
+        <input name='username' id="user" type="text" placeholder="username"/>
       </div>
       <div class="u-form-group">
-        <input name='password' type="password" placeholder="password"/>
+        <input name='password' id="pass" type="password" placeholder="password"/>
       </div>
       <div class="u-form-group">
-        <button type="submit">Log in</button>
+        <button id="submit" type="submit">Log in</button>
         <input type="hidden" name="next" value="{{next}}"/>
       </div>
       {% for message in messages %}
