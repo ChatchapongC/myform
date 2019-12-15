@@ -77,23 +77,28 @@ def event_edit(request, event_id):
         return HttpResponseRedirect(reverse('myform:event'))
     else:
         form = EventForm(instance=event)
+        question_form = AddQuestion()
     context = {'event_form': form,
-               'event': event}
+               'event': event,
+               'question_form': question_form
+            }
     return render(request, "myform/createform.html", context)
 
 
-def create_question(request):
+def create_question(request, event_id):
     if request.method == 'POST':
         question_form = AddQuestion(request.POST)
         if question_form.is_valid():
-            question_form.save()
+            question = question_form.save(commit=False)
+            question.event_id = event_id
+            question.save()
             messages.success(
                 request, "Question added successfully",
                 extra_tags='alert alert-success alert-dismissible fade show')
         else:
             messages.error(
                 request, question_form.errors)
-        return HttpResponseRedirect(reverse('myform:create'))
+        return HttpResponseRedirect(reverse('myform:edit', args=[event_id]))
     else:
         question_form = AddQuestion()
     context = {'question_form': question_form}
@@ -158,3 +163,5 @@ def user_register(request):
     context = {'user': user,
                'registered': registered}
     return render(request, 'registration/registration_form.html', context)
+
+
