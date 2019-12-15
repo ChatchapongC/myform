@@ -22,14 +22,17 @@ div.scrollmenu a {
 div.scrollmenu a:hover {
   background-color: #777;
 }
+
 </style>
 
 
 <div class="scrollmenu">
-  <a href="#home">Event</a>
-  <a href="#about">About</a>  
-  <a href="#contact">Contact</a>
-  <a href="#support">Logout</a>
+    <a href="{% url 'myform:event' %}">Event</a> 
+    <a href="{% url 'myform:contact' %}">Contact</a>
+    <a href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+    <div style="position: absolute; left: 1160px; top: 10px; font-size: 0.9rem; color:white;"> 
+        <p>Hello {{ user.first_name|default:user.username}}!</p>
+    </div>
 </div>
 
 
@@ -53,10 +56,10 @@ div.scrollmenu a:hover {
                             <div id="myMulti">
                                  <a>Multiple Choice</a>
                             </div>
-                            <div id="myBool">
+                            {% comment %} <div id="myBool">
                                  <a>Yes or No</a>
-                            </div>
-                           
+                            </div> {% endcomment %}
+
                         </div>
                     </div>
                     
@@ -85,7 +88,7 @@ div.scrollmenu a:hover {
         <div id="Multiple" class="multi">  
 
         <!-- Multi content -->
-            <div class="multi-content">
+            <div class="multi-content" style="width:50%;height:500px;line-height:3em;overflow:auto;padding:5px;">
                 <span class="close">&times;</span>
                 <div>
                     <p class="btn" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Question</p>
@@ -95,26 +98,29 @@ div.scrollmenu a:hover {
                     <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
                     <style> 
                     input[type=checkbox]{
-                    position: absolute; 
-                    left:380px; 
+                    position: auto; 
+                    margin-left:60px; 
                     }
                     input[type=text] {
                     width: 60%;
-                    padding: 10px 20px;
+                    padding: 10px;
                     margin: 8px 0;
-                    margin-left: 100px;
+                    margin-left: 50px;
                     box-sizing: border-box;
                     border: none;
                     border-bottom: 2px solid gray;
                     opacity: 0.9;
                     }
+                
                     </style>
+
                     <form method="POST">
                          <div id="dynamicInput">
-                             <br><input type="checkbox"  name="scales"
-                                    checked>
-                             <input type="text" name="myInputs[]">
-                     
+                            <div>
+                                <input type="checkbox"  name="scales" 
+                                        checked>
+                                <input type="text" name="myInputs[]">
+                            </div>
                          </div>
                          
                          <input  class="addchoice" type="button" value="Add Choices" onClick="addInput('dynamicInput');">
@@ -126,20 +132,19 @@ div.scrollmenu a:hover {
  
         <div id="Bool" class="yesorno"> 
         <!-- bool content -->
-            <div class="bool-content">
+            <div class="modal-content">
                 <span class="close">&times;</span>
-                <p class="btn" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Question</p>
-                <div class="u-form-group1">
-                    <input type="question" placeholder="Type Question" />
+                <div>
+                    <p class="btn" style="font-size: 1rem" style="color:rgb(255, 255, 255)">Question</p>
+                    <div class="u-form-group1">
+                        <input type="question" placeholder="Type Question" />
+                    </div>
+                    <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
+                    <div class="u-form-group1">
+                        <input type="shortanswer" placeholder="Type Answer" />
+                   </div>
+                   <button class="submit">submit</button>
                 </div>
-                <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
-                <div style="position: absolute; left:400px; top:300px;">
-                        <input type="checkbox" > Yes<br>
-                </div>  
-                <div style="position: absolute; left:400px; top:3px;">
-                        <input type="checkbox" > No<br>
-                </div>  
-                <button class="submit">submit</button>
             </div>
         </div>   
         
@@ -167,20 +172,20 @@ div.scrollmenu a:hover {
         btn.onclick = function() {
         modal.style.display = "block";
         multi.style.display = "none";
-        yesorno.style.display = "none";
+       
         }
 
         mtp.onclick = function() {
         multi.style.display = "block";
         modal.style.display = "none";
-        yesorno.style.display = "none";
+    
         }
 
-        bol.onclick = function() {
+        {% comment %} bol.onclick = function() {
         yesorno.style.display = "block";
         multi.style.display = "none";
         modal.style.display = "none";
-        }
+        } {% endcomment %}
 
         spanshort.onclick = function() {
         modal.style.display = "none";
@@ -227,7 +232,7 @@ div.scrollmenu a:hover {
                   x++;
                   var newdiv = document.createElement('div');
                   newdiv.setAttribute("id", `input${x}`);
-                  newdiv.innerHTML = `<br><input type='checkbox' name='scales'><br><input type='text' name='myInputs[]'><input  class="delete" type="button" value="delete" onClick="removeElement('input${x}')">`;
+                  newdiv.innerHTML = `<br><input type='checkbox' name='scales'><input type='text' name='myInputs[]'><input  class="delete" type="button" value="delete" onClick="removeElement('input${x}')">`;
                   document.getElementById(divName).appendChild(newdiv);
                   counter++;
              } 
@@ -239,6 +244,6 @@ div.scrollmenu a:hover {
                 jo.remove();
                 counter--;
             }      
-        
+
         </script>
         

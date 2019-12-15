@@ -1,9 +1,9 @@
 {% load static %}
 {% block content %}
     {% if user.is_authenticated %}
-        <div style="position: absolute; left: 1160px; top: 10px; font-size: 0.9rem;"> 
+        {% comment %} <div style="position: absolute; left: 1160px; top: 10px; font-size: 0.9rem;"> 
             <p>Hello {{ user.first_name|default:user.username}}!</p>
-        </div>
+        </div> {% endcomment %}
        
         {% for ass in backends.associated %}
             {% if ass.provider == 'facebook' %}
@@ -25,9 +25,6 @@
                 </div>
             {% endif %}
         {% endfor %}
-        <div style="position: absolute; left: 1180px; top: 45px;">
-                <a href="{% url 'logout'%}?next={{request.path}}">
-                    <img src="{% static 'myform/images/logout.png' %}" width="65" height="35">
 
         <link rel="stylesheet" href="{% static 'myform/index.css' %}">
         <style>
@@ -53,13 +50,14 @@
 
 
         <div class="scrollmenu">
-        <a href="#home">Event</a>
-        <a href="#about">About</a>  
-        <a href="{% url 'myform:contact' %}">Contact</a>
-        <a href="href=#">Logout</a>
-
+            <a href="{% url 'myform:event' %}">Event</a>
+            <a href="{% url 'myform:contact' %}">Contact</a>
+            <a href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+            <div style="position: absolute; left: 1160px; top: 10px; font-size: 0.9rem; color:white;"> 
+                <p>Hello {{ user.first_name|default:user.username}}!</p>
+            </div>
         </div>
-        <!-- <a href="{% url 'logout'%}?next={{request.path}}">logout</a> -->
+      
         <link rel="stylesheet" href="{% static 'myform/index.css' %}">
         <div class="even-box">
             <div class="lb-header">
