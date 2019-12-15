@@ -67,6 +67,8 @@ div.scrollmenu a:hover {
                              </form>
                         {% endif %}
                     </div>
+
+                    {% if event %}
                     <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Question</p>
                     <div class="dropdown">
                         <button class="dropbtn">Select answer type</button>
@@ -80,6 +82,7 @@ div.scrollmenu a:hover {
 
                         </div>
                     </div>
+                    {% endif %}
 
                 </div>
             </div>
@@ -91,7 +94,8 @@ div.scrollmenu a:hover {
 <!--         Modal content-->
             <div class="modal-content">
                 <span class="close">&times;</span>
-                    <form method="post" action="{% url 'myform:create'%}">
+                    {% if event.id %}
+                    <form method="post" action="{% url 'myform:create_question' event.id %}">
                         {% csrf_token %}
                         <div class="u-form-group1">
                             <p class="btn" style="font-size: 1rem" style="color:rgb(255, 255, 255)">Question</p>
@@ -100,7 +104,8 @@ div.scrollmenu a:hover {
                            <button class="submit" type="submit">add</button>
                         </div>
                     </form>
-            </div>
+                    {% endif %}
+                </div>
         </div>
 
         <div id="Multiple" class="multi">
