@@ -28,7 +28,7 @@ div.scrollmenu a:hover {
 <div class="scrollmenu">
     <a href="{% url 'myform:event' %}">Event</a>
     <a href="{% url 'myform:contact' %}">Contact</a>
-    <a href="href=#">Logout</a>
+    <a href="{% url 'logout'%}?next={{request.path}}">Logout</a>
     <div style="position: absolute; left: 1160px; top: 10px; font-size: 0.9rem; color:white;"> 
         <p>Hello {{ user.first_name|default:user.username}}!</p>
     </div>
