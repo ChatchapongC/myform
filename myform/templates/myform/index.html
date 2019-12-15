@@ -1,30 +1,10 @@
 {% load static %}
 {% block content %}
-    {% if user.is_authenticated %}
-        {% comment %} <div style="position: absolute; left: 1160px; top: 10px; font-size: 0.9rem;"> 
+        <div style="position: absolute; left: 1160px; top: 10px; font-size: 0.9rem;">
             <p>Hello {{ user.first_name|default:user.username}}!</p>
-        </div> {% endcomment %}
-       
-        {% for ass in backends.associated %}
-            {% if ass.provider == 'facebook' %}
-                <div class="col-md-6 text-center">
-                    <img src="{{ass.extra_data.picture.data.url}}" alt="" width="150" height="150" style="border-radius: 50%">
-                </div>
-                <div class="col-md-6 social-container my-2">                 <p> Signed in via:  {{ ass.provider }} </p>
-                    <p> Name:  {{ ass.extra_data.name }} </p>
+        </div>
 
-                </div>
-            {% endif %}
-            {% if ass.provider == 'google-oauth2' %}
-                <div class="col-md-6 text-center">
-                    <img src="{{ass.extra_data.picture.data.url}}" alt="" width="150" height="150" style="border-radius: 50%">
-                </div>
-                <div class="col-md-6 social-container my-2">                 <p> Signed in via:  {{ ass.provider }} </p>
-                    <p> Name:  {{ ass.extra_data.name }} </p>
 
-                </div>
-            {% endif %}
-        {% endfor %}
 
         <link rel="stylesheet" href="{% static 'myform/index.css' %}">
         <style>
@@ -57,21 +37,30 @@
                 <p>Hello {{ user.first_name|default:user.username}}!</p>
             </div>
         </div>
-      
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
         <link rel="stylesheet" href="{% static 'myform/index.css' %}">
         <div class="even-box">
             <div class="lb-header">
                 <i>Even List</i>
             </div>
             {% for event in event_list %}
-                <li>{{event.event_name}}</li>
+                <li><a href="{% url 'myform:evaluator' event.id %}">{{ event.event_name }}</a></li>
             {% endfor %}
         </div>
         <div class="even-box1">
             <div class="lb-header">
                 <s>My Event</s>
             </div>
+            {% for event in my_event %}
+                <li><a href="{% url 'myform:edit' event.id %}">{{ event }}</a></li>
+            {% endfor %}
             <button class="btn Event"><a href="{% url 'myform:create' %}">+ Create Event</a></button>
         </div>
-    {% endif %}
+
 {% endblock %}

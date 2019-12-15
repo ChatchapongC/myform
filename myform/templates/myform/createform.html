@@ -44,7 +44,28 @@ div.scrollmenu a:hover {
                 <div>
                     <p class="btn" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Event Name</p>
                     <div class="u-form-group1">
-                        <input type="question" placeholder="Type Event Name" />
+<!--                    {% for message in messages %}-->
+<!--                    <div class="alert alert-warning text-center">-->
+<!--                    <a class="close" href="#" data-dismiss="alert">×</a><strong>Sorry!</strong> {{ message }}-->
+<!--                    </div>-->
+<!--                    {% endfor %}-->
+                        {% if event.id %}
+                            <form method="post" action="{% url 'myform:edit' event.id %}">
+                            {% csrf_token %}
+                                 <label>{{event_form.event_name}}</label>
+                            <button type="submit" class="btn btn-secondary">Update</button>
+                            </form>
+                            <form method="post" action="{% url 'myform:delete' event.id %}">
+                                {% csrf_token %}
+                                <button id="{{event.id}}" class="btn btn-light" type="submit">Delete</button>
+                            </form>
+                        {% else %}
+                            <form method="post" action="{% url 'myform:create' %}">
+                                {% csrf_token %}
+                                     <label>{{event_form.event_name}}</label>
+                                <button type="submit" class="btn btn-secondary">Submit</button>
+                             </form>
+                        {% endif %}
                     </div>
                     <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Question</p>
                     <div class="dropdown">
@@ -56,38 +77,33 @@ div.scrollmenu a:hover {
                             <div id="myMulti">
                                  <a>Multiple Choice</a>
                             </div>
-                            {% comment %} <div id="myBool">
-                                 <a>Yes or No</a>
-                            </div> {% endcomment %}
 
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
-            
+            <div id="questionbox" class="answer-box">
+            </div>
+
         <div id="myModal" class="modal">
 
-        <!-- Modal content -->
+<!--         Modal content-->
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <div>
-                    <p class="btn" style="font-size: 1rem" style="color:rgb(255, 255, 255)">Question</p>
-                    <div class="u-form-group1">
-                        <input type="question" placeholder="Type Question" />
-                    </div>
-                    <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
-                    <div class="u-form-group1">
-                        <input type="shortanswer" placeholder="Type Answer" />
-                   </div>
-                   <button class="submit">submit</button>
-                </div>
+                    <form method="post" action="{% url 'myform:create'%}">
+                        {% csrf_token %}
+                        <div class="u-form-group1">
+                            <p class="btn" style="font-size: 1rem" style="color:rgb(255, 255, 255)">Question</p>
+                                    <label>{{question_form.question_text}}</label>
+<!--                                <input type="question" placeholder="Type Question" />-->
+                           <button class="submit" type="submit">add</button>
+                        </div>
+                    </form>
             </div>
         </div>
-        
-        <div id="Multiple" class="multi">  
 
-        <!-- Multi content -->
+        <div id="Multiple" class="multi">
             <div class="multi-content" style="width:50%;height:500px;line-height:3em;overflow:auto;padding:5px;">
                 <span class="close">&times;</span>
                 <div>
@@ -96,7 +112,7 @@ div.scrollmenu a:hover {
                         <input type="question" placeholder="Type Question" />
                     </div>
                     <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
-                    <style> 
+                    <style>
                     input[type=checkbox]{
                     position: auto; 
                     margin-left:60px; 
@@ -122,15 +138,15 @@ div.scrollmenu a:hover {
                                 <input type="text" name="myInputs[]">
                             </div>
                          </div>
-                         
+
                          <input  class="addchoice" type="button" value="Add Choices" onClick="addInput('dynamicInput');">
                     </form>
                     <button class="submit">submit</button>
             </div>
         </div>
         </div>
- 
-        <div id="Bool" class="yesorno"> 
+
+        <div id="Bool" class="yesorno">
         <!-- bool content -->
             <div class="modal-content">
                 <span class="close">&times;</span>
@@ -146,8 +162,8 @@ div.scrollmenu a:hover {
                    <button class="submit">submit</button>
                 </div>
             </div>
-        </div>   
-        
+        </div>
+
         <script>
         var modal = document.getElementById("myModal");
 
@@ -156,7 +172,7 @@ div.scrollmenu a:hover {
         var yesorno = document.getElementById("Bool");
 
         var btn = document.getElementById("myBtn");
-         
+
         var mtp = document.getElementById("myMulti")
 
         var bol = document.getElementById("myBool")
@@ -192,7 +208,7 @@ div.scrollmenu a:hover {
         multi.style.display = "none";
         yesorno.style.display = "none";
         }
-        
+
         spanmulti.onclick = function() {
         modal.style.display = "none";
         multi.style.display = "none";
@@ -204,7 +220,7 @@ div.scrollmenu a:hover {
         multi.style.display = "none";
         yesorno.style.display = "none";
         }
-        
+
         window.onclick = function(event) {
         if (event.target == modal) {
             // modal.style.display = "none";
@@ -219,7 +235,7 @@ div.scrollmenu a:hover {
             yesorno.style.display = "none";
         }
         }
-        
+
 
         var counter = 0;
         var limit = 10;
@@ -235,7 +251,7 @@ div.scrollmenu a:hover {
                   newdiv.innerHTML = `<br><input type='checkbox' name='scales'><input type='text' name='myInputs[]'><input  class="delete" type="button" value="delete" onClick="removeElement('input${x}')">`;
                   document.getElementById(divName).appendChild(newdiv);
                   counter++;
-             } 
+             }
         }
         function removeElement(divName) {
             var jo = document.getElementById(divName);
