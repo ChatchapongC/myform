@@ -69,6 +69,7 @@ def create_event(request):
 
 def event_edit(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
+    question_list = Question.objects.filter(event_id=event_id)
     if request.user != event.owner:
         messages.error(request, 'This is not your own form')
         return HttpResponseRedirect(reverse('myform:evaluator', kwargs={'event_id': event_id}))
@@ -82,7 +83,8 @@ def event_edit(request, event_id):
         question_form = AddQuestion()
     context = {'event_form': form,
                'event': event,
-               'question_form': question_form
+               'question_form': question_form,
+               'question_list': question_list
             }
     return render(request, "myform/createform.html", context)
 
@@ -95,8 +97,7 @@ def create_question(request, event_id):
             question.event_id = event_id
             question.save()
             messages.success(
-                request, "Question added successfully",
-                extra_tags='alert alert-success alert-dismissible fade show')
+                request, "Question added successfully")
         else:
             messages.error(
                 request, question_form.errors)
