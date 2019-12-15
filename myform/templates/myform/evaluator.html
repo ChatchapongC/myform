@@ -22,10 +22,16 @@
 <!--                    <a class="close" href="#" data-dismiss="alert">×</a><strong>Sorry!</strong> {{ message }}-->
 <!--                    </div>-->
 <!--                    {% endfor %}-->
-                    <form action="{% url 'myform:edit' event.id %}">
+                    <form action="{% url 'myform:save' event.id %}" method="POST">
+                        {%csrf_token%}
                         {% for question in question_list %}
-                        <label>{{question}}</label>
+                        <p>{{question}}</p>
+                        <input type="text" value="" name="new">
+                        <input type="hidden" value="{{question.id}}" name="id">
+                        <button type="submit">Submit</button>
                         {% endfor %}
+                    </form>
+                    <form action="{% url 'myform:edit' event.id %}">
                         <button type="submit">Edit</button>
                     </form>
                 </div>

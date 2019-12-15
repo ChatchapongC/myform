@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from myform.views import HomeView, IndexView, CreateProjectView, ContactView ,SummaryView, event_delete, create_question, create_event, event_edit, \
-    evaluator_view, create_question
+    evaluator_view, create_question, save_answer
 from django.contrib.auth.decorators import login_required
 
 app_name = 'myform'
@@ -16,5 +16,6 @@ urlpatterns = [
     path('create_question/<int:event_id>', create_question, name='create_question'),
     path('edit/<int:event_id>', event_edit, name='edit'),
     path('form/<int:event_id>', evaluator_view, name='evaluator'),
-    path('delete/<int:event_id>', event_delete, name='delete')
+    path('delete/<int:event_id>', event_delete, name='delete'),
+    path('addans/<int:event_id>' , save_answer, name='save')
 ]

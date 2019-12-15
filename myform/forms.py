@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.forms import EmailInput, TextInput, PasswordInput, Field
-from .models import Event, Question, Evaluation
+from .models import *
 
 
 class UserRegistrationForm(forms.ModelForm):

@@ -10,7 +10,7 @@ from django.views import generic, View
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegistrationForm, EventForm, AddQuestion
-from .models import Event, Question
+from .models import *
 import datetime
 
 
@@ -92,6 +92,7 @@ def create_question(request, event_id):
             question = question_form.save(commit=False)
             question.event_id = event_id
             question.save()
+
             messages.success(
                 request, "Question added successfully",
                 extra_tags='alert alert-success alert-dismissible fade show')
@@ -103,6 +104,11 @@ def create_question(request, event_id):
         question_form = AddQuestion()
     context = {'question_form': question_form}
     return render(request, 'myform/createform.html', context)
+
+
+def save_answer(request, event_id):
+    ans = request.POST['new']
+    return HttpResponseRedirect(f'/form/{event_id}')
 
 
 class IndexView(generic.ListView):
