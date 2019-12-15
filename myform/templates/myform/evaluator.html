@@ -15,19 +15,21 @@
     <div id="event-body">
         <div id="shortanswer" class="answer-box">
             <div>
-                <p class="btn" style="font-size: 3rem" style="color:rgb(36, 53, 14)">{{event}}</p>
+                <div>
+                    <form action="{% url 'myform:edit' event.id %}">
+                        <button type="submit">Edit</button>
+                    </form>
+                    <p class="btn" style="font-size: 3rem" style="color:rgb(36, 53, 14)">{{event}}</p>
+                </div>
                 <div class="u-form-group1">
 <!--                    {% for message in messages %}-->
 <!--                    <div class="alert alert-warning text-center">-->
 <!--                    <a class="close" href="#" data-dismiss="alert">×</a><strong>Sorry!</strong> {{ message }}-->
 <!--                    </div>-->
 <!--                    {% endfor %}-->
-                    <form action="{% url 'myform:edit' event.id %}">
                         {% for question in question_list %}
                         <label>{{question}}</label>
                         {% endfor %}
-                        <button type="submit">Edit</button>
-                    </form>
                 </div>
             </div>
         </div>
