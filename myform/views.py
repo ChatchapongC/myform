@@ -25,8 +25,10 @@ class CreateProjectView(TemplateView):
 class SummaryView(TemplateView):
     template_name = 'myform/summary.html'
 
+
 class ContactView(TemplateView):
     template_name = 'myform/contact.html'
+
 
 def evaluator_view(request, event_id):
     question_list = Question.objects.filter(event_id=event_id)
@@ -67,9 +69,10 @@ def create_event(request):
 
 def event_edit(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
+    question_list = Question.objects.filter(event_id=event_id)
     if request.user != event.owner:
         messages.error(request, 'This is not your own form')
-        return HttpResponseRedirect(reverse('myform:evaluator', kwargs={'event_id':event_id}))
+        return HttpResponseRedirect(reverse('myform:evaluator', kwargs={'event_id': event_id}))
     if request.method == 'POST':
         form = EventForm(request.POST, instance=event)
         if form.is_valid:
@@ -80,7 +83,8 @@ def event_edit(request, event_id):
         question_form = AddQuestion()
     context = {'event_form': form,
                'event': event,
-               'question_form': question_form
+               'question_form': question_form,
+               'question_list': question_list
             }
     return render(request, "myform/createform.html", context)
 
@@ -94,8 +98,7 @@ def create_question(request, event_id):
             question.save()
 
             messages.success(
-                request, "Question added successfully",
-                extra_tags='alert alert-success alert-dismissible fade show')
+                request, "Question added successfully")
         else:
             messages.error(
                 request, question_form.errors)
