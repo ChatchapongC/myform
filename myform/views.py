@@ -20,6 +20,10 @@ class HomeView(TemplateView):
 class CreateProjectView(TemplateView):
     template_name = 'myform/projectlist.html'
 
+
+class SummaryView(TemplateView):
+    template_name = 'myform/summary.html'
+
 class ContactView(TemplateView):
     template_name = 'myform/contact.html'
 

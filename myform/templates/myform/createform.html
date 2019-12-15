@@ -56,9 +56,9 @@ div.scrollmenu a:hover {
                             <div id="myMulti">
                                  <a>Multiple Choice</a>
                             </div>
-                            <div id="myBool">
+                            {% comment %} <div id="myBool">
                                  <a>Yes or No</a>
-                            </div>
+                            </div> {% endcomment %}
 
                         </div>
                     </div>
@@ -98,14 +98,14 @@ div.scrollmenu a:hover {
                     <p class="btn1" style="font-size: 1rem" style="color:rgb(194, 184, 184)">Answer</p>
                     <style> 
                     input[type=checkbox]{
-                    position: absolute; 
-                    left:380px; 
+                    position: auto; 
+                    margin-left:60px; 
                     }
                     input[type=text] {
                     width: 60%;
-                    padding: 10px 20px;
+                    padding: 10px;
                     margin: 8px 0;
-                    margin-left: 100px;
+                    margin-left: 50px;
                     box-sizing: border-box;
                     border: none;
                     border-bottom: 2px solid gray;
@@ -117,7 +117,7 @@ div.scrollmenu a:hover {
                     <form method="POST">
                          <div id="dynamicInput">
                             <div>
-                                <input type="checkbox"  name="scales" value="1"
+                                <input type="checkbox"  name="scales" 
                                         checked>
                                 <input type="text" name="myInputs[]">
                             </div>
@@ -172,20 +172,20 @@ div.scrollmenu a:hover {
         btn.onclick = function() {
         modal.style.display = "block";
         multi.style.display = "none";
-        yesorno.style.display = "none";
+       
         }
 
         mtp.onclick = function() {
         multi.style.display = "block";
         modal.style.display = "none";
-        yesorno.style.display = "none";
+    
         }
 
-        bol.onclick = function() {
+        {% comment %} bol.onclick = function() {
         yesorno.style.display = "block";
         multi.style.display = "none";
         modal.style.display = "none";
-        }
+        } {% endcomment %}
 
         spanshort.onclick = function() {
         modal.style.display = "none";
@@ -232,7 +232,7 @@ div.scrollmenu a:hover {
                   x++;
                   var newdiv = document.createElement('div');
                   newdiv.setAttribute("id", `input${x}`);
-                  newdiv.innerHTML = `<br><input type='checkbox' name='scales'><br><input type='text' name='myInputs[]'><input  class="delete" type="button" value="delete" onClick="removeElement('input${x}')">`;
+                  newdiv.innerHTML = `<br><input type='checkbox' name='scales'><input type='text' name='myInputs[]'><input  class="delete" type="button" value="delete" onClick="removeElement('input${x}')">`;
                   document.getElementById(divName).appendChild(newdiv);
                   counter++;
              } 
@@ -244,6 +244,6 @@ div.scrollmenu a:hover {
                 jo.remove();
                 counter--;
             }      
-        
+
         </script>
         
